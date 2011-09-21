@@ -1,0 +1,46 @@
+# 8QueensSample.txt
+#
+# This file provides a single test case for a computer algorithm that
+# computes solutions to 8 queen problems.
+
+# Board Layout Diagram
+#
+#     A   B   C   D   E   F   G   H    
+#   ---------------------------------
+# 8 |   |   |   |   |   |   |   |   | 8
+#   --------------------------------- 
+# 7 |   |   |   |   |   |   |   |   | 7
+#   --------------------------------- 
+# 6 |   |   |   |   |   |   |   |   | 6
+#   ---------------------------------
+# 5 |   |   |   |   |   |   |   |   | 5
+#   ---------------------------------
+# 4 |   |   |   |   |   |   |   |   | 4
+#   ---------------------------------
+# 3 |   |   |   |   |   |   |   |   | 3
+#   ---------------------------------
+# 2 |   |   |   |   |   |   |   |   | 2
+#   ---------------------------------
+# 1 |   |   |   |   |   |   |   |   | 1
+#   ---------------------------------
+#     A   B   C   D   E   F   G   H 
+
+# This is a comment line
+# Each piece is identified by the letter Q followed by an integer (1-8)
+# then follows a semi-colon.  A single integer after the semi-colon corresponds
+# to the location according to the above board layout diagram.
+Q1:A1
+Q2:B2
+Q3:C3
+Q4:D4
+Q5:E5
+Q6:F6
+Q7:G7
+Q8:H8
+
+
+# If the puzzle above is completed optimally, it will take OMC (optimal move count) moves.
+# OMC followed by a semi-colon and a single integer will communicate that value to 
+# the program
+OMC:7
+ 
