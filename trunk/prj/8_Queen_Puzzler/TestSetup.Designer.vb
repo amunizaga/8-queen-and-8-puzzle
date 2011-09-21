@@ -24,6 +24,8 @@ Partial Class TestSetup
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TestSetup))
         Me.gb_LoadTestCase = New System.Windows.Forms.GroupBox()
+        Me.cb_Puzzle = New System.Windows.Forms.CheckBox()
+        Me.cb_Queen = New System.Windows.Forms.CheckBox()
         Me.gb_TestOptions = New System.Windows.Forms.GroupBox()
         Me.clb_OptionsList = New System.Windows.Forms.CheckedListBox()
         Me.btn_OpenFile = New System.Windows.Forms.Button()
@@ -112,8 +114,6 @@ Partial Class TestSetup
         Me.PictureBox67 = New System.Windows.Forms.PictureBox()
         Me.PictureBox66 = New System.Windows.Forms.PictureBox()
         Me.PictureBox65 = New System.Windows.Forms.PictureBox()
-        Me.cb_Queen = New System.Windows.Forms.CheckBox()
-        Me.cb_Puzzle = New System.Windows.Forms.CheckBox()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -207,6 +207,26 @@ Partial Class TestSetup
         Me.gb_LoadTestCase.TabStop = False
         Me.gb_LoadTestCase.Text = "Load Test Case"
         '
+        'cb_Puzzle
+        '
+        Me.cb_Puzzle.AutoSize = True
+        Me.cb_Puzzle.Location = New System.Drawing.Point(291, 52)
+        Me.cb_Puzzle.Name = "cb_Puzzle"
+        Me.cb_Puzzle.Size = New System.Drawing.Size(57, 17)
+        Me.cb_Puzzle.TabIndex = 4
+        Me.cb_Puzzle.Text = "Puzzle"
+        Me.cb_Puzzle.UseVisualStyleBackColor = True
+        '
+        'cb_Queen
+        '
+        Me.cb_Queen.AutoSize = True
+        Me.cb_Queen.Location = New System.Drawing.Point(291, 29)
+        Me.cb_Queen.Name = "cb_Queen"
+        Me.cb_Queen.Size = New System.Drawing.Size(58, 17)
+        Me.cb_Queen.TabIndex = 3
+        Me.cb_Queen.Text = "Queen"
+        Me.cb_Queen.UseVisualStyleBackColor = True
+        '
         'gb_TestOptions
         '
         Me.gb_TestOptions.Controls.Add(Me.clb_OptionsList)
@@ -220,7 +240,7 @@ Partial Class TestSetup
         'clb_OptionsList
         '
         Me.clb_OptionsList.FormattingEnabled = True
-        Me.clb_OptionsList.Items.AddRange(New Object() {"Simulated Annealing", "Hill Climb", "Genetic Algorithgm", "Local Beam"})
+        Me.clb_OptionsList.Items.AddRange(New Object() {"Simulated Annealing", "Hill Climb", "Genetic Algorithm", "Local Beam"})
         Me.clb_OptionsList.Location = New System.Drawing.Point(7, 20)
         Me.clb_OptionsList.Name = "clb_OptionsList"
         Me.clb_OptionsList.Size = New System.Drawing.Size(160, 49)
@@ -257,6 +277,7 @@ Partial Class TestSetup
         '
         Me.ofd_TestCase.FileName = "ofd_TestCaseFile"
         Me.ofd_TestCase.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"
+        Me.ofd_TestCase.InitialDirectory = "..\"
         Me.ofd_TestCase.Multiselect = True
         '
         'gb_TestCaseData
@@ -1084,26 +1105,6 @@ Partial Class TestSetup
         Me.PictureBox65.Size = New System.Drawing.Size(40, 40)
         Me.PictureBox65.TabIndex = 0
         Me.PictureBox65.TabStop = False
-        '
-        'cb_Queen
-        '
-        Me.cb_Queen.AutoSize = True
-        Me.cb_Queen.Location = New System.Drawing.Point(291, 29)
-        Me.cb_Queen.Name = "cb_Queen"
-        Me.cb_Queen.Size = New System.Drawing.Size(58, 17)
-        Me.cb_Queen.TabIndex = 3
-        Me.cb_Queen.Text = "Queen"
-        Me.cb_Queen.UseVisualStyleBackColor = True
-        '
-        'cb_Puzzle
-        '
-        Me.cb_Puzzle.AutoSize = True
-        Me.cb_Puzzle.Location = New System.Drawing.Point(291, 52)
-        Me.cb_Puzzle.Name = "cb_Puzzle"
-        Me.cb_Puzzle.Size = New System.Drawing.Size(57, 17)
-        Me.cb_Puzzle.TabIndex = 4
-        Me.cb_Puzzle.Text = "Puzzle"
-        Me.cb_Puzzle.UseVisualStyleBackColor = True
         '
         'TestSetup
         '

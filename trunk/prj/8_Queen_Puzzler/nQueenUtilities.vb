@@ -43,17 +43,29 @@
     End Function
 
     Function computeCommonRowOrDiagonal(ByVal Queen1 As Queen, ByVal Queen2 As Queen) As Integer
-        If (Queen1.Row = Queen2.Row) Then
-            Return 1 ' we have a common row
-        ElseIf (Math.Abs(Queen1.Row - Queen2.Row) Mod 9 = 0) Or
-                (Math.Abs(Queen1.Row - Queen2.Row) Mod 7 = 0) Then
-            Return 2 ' we have a common diagonal
+        If (Queen1.Name <> Queen2.Name) Then
+            If (Queen1.Row = Queen2.Row) Then
+                Return 1 ' we have a common row
+            ElseIf (Math.Abs(Queen1.Row - Queen2.Row) Mod 9 = 0) Or
+                    (Math.Abs(Queen1.Row - Queen2.Row) Mod 7 = 0) Then
+                Return 2 ' we have a common diagonal
+            Else
+                Return 0 ' we have nothing in common!
+            End If
         Else
-            Return 0 ' we have nothing in common!
+            Return 0
         End If
     End Function
 
     Sub MoveQueenInColumn(ByVal myQueen As Queen)
+
+        Dim originalRow As Integer = myQueen.Row
+
+        myQueen.Row += 1
+
+        If myQueen.Row = 9 Then
+            myQueen.Row = 1
+        End If
 
         'TODO: get the name of the queen in column i here
 

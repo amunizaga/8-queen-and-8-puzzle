@@ -1,29 +1,21 @@
 ﻿Public Class TestSetup
 
-    Private Sub ofd_TestCase_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ofd_TestCase.FileOk
-        Dim file As String
-        ofd_TestCase.Dispose()
-        For Each file In ofd_TestCase.FileNames
-            fileParsingUtilities.getTestCases()
-        Next file
-    End Sub
 
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
-
-
-        'TODO - process the file to determine where queens go if its a 8 queen, and where puzzle pieces go if its a 8 puzzler
-
-        'show the board
-        gb_ChessBoard.Visible = True
     End Sub
 
     Private Sub btn_CloseWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_CloseWindow.Click
         Me.Dispose()
+        Me.Close()
+        End
     End Sub
 
     Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
-        
+        Dim file As String
+        For Each file In ofd_TestCase.FileNames
+            fileParsingUtilities.getTestCases()
+        Next file
     End Sub
 
     Public Sub updateChessGrid(ByVal newPositionString As String)
