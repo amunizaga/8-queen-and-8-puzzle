@@ -168,6 +168,7 @@ Module fileParsingUtilities
         SetupQueenslist(piecePositions)
 
         TestSetup.updateChessGrid(piecePositions)
+        Delay(3)
 
         piecePositions = SolveNQueen()
 
