@@ -1,0 +1,42 @@
+# 8PuzzleSample.txt
+#
+# This file provides a single test case for a computer algorithm that
+# computes solutions to 8 puzzle problems.
+
+# Board Layout Diagram
+#
+#-------------
+#| 1 | 2 | 3 |
+#-------------
+#| 4 | 5 | 6 |
+#-------------
+#| 7 | 8 | 9 |
+#-------------
+#
+
+# This is a comment line
+# Each piece is identified by the letter P followed by an integer (1-9)
+# then follows a semi-colon.  A single integer after the semi-colon corresponds
+# to the location according to the above board layout diagram.
+P1:1
+P2:2
+P3:3
+P4:4
+P5:5
+P6:6
+P7:7
+P8:9
+
+
+# If the puzzle above is completed optimally, it will take OMC (optimal move count) moves.
+# OMC followed by a semi-colon and a single integer will communicate that value to 
+# the program
+OMC:7
+
+
+# there is only 1 valid solution to the 8 puzzle problem.  GS (Goal State) defines
+# the order for the pieces, starting at 1 and counting to 9. a 0 indicates that space
+# should be blank in the goal state.
+GS:P4,P5,P6,0,P1,P2,P8,P7,P3
+
+ 
