@@ -118,6 +118,7 @@ Partial Class TestSetup
         Me.PictureBox67 = New System.Windows.Forms.PictureBox()
         Me.PictureBox66 = New System.Windows.Forms.PictureBox()
         Me.PictureBox65 = New System.Windows.Forms.PictureBox()
+        Me.cb_MoveDelay = New System.Windows.Forms.CheckBox()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -200,13 +201,14 @@ Partial Class TestSetup
         '
         'gb_LoadTestCase
         '
+        Me.gb_LoadTestCase.Controls.Add(Me.cb_MoveDelay)
         Me.gb_LoadTestCase.Controls.Add(Me.cb_Puzzle)
         Me.gb_LoadTestCase.Controls.Add(Me.cb_Queen)
         Me.gb_LoadTestCase.Controls.Add(Me.gb_TestOptions)
         Me.gb_LoadTestCase.Controls.Add(Me.btn_OpenFile)
         Me.gb_LoadTestCase.Location = New System.Drawing.Point(13, 13)
         Me.gb_LoadTestCase.Name = "gb_LoadTestCase"
-        Me.gb_LoadTestCase.Size = New System.Drawing.Size(420, 100)
+        Me.gb_LoadTestCase.Size = New System.Drawing.Size(434, 100)
         Me.gb_LoadTestCase.TabIndex = 0
         Me.gb_LoadTestCase.TabStop = False
         Me.gb_LoadTestCase.Text = "Load Test Case"
@@ -1166,6 +1168,18 @@ Partial Class TestSetup
         Me.PictureBox65.TabIndex = 0
         Me.PictureBox65.TabStop = False
         '
+        'cb_MoveDelay
+        '
+        Me.cb_MoveDelay.AutoSize = True
+        Me.cb_MoveDelay.Checked = True
+        Me.cb_MoveDelay.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cb_MoveDelay.Location = New System.Drawing.Point(291, 75)
+        Me.cb_MoveDelay.Name = "cb_MoveDelay"
+        Me.cb_MoveDelay.Size = New System.Drawing.Size(136, 17)
+        Me.cb_MoveDelay.TabIndex = 5
+        Me.cb_MoveDelay.Text = "Pause Between Moves"
+        Me.cb_MoveDelay.UseVisualStyleBackColor = True
+        '
         'TestSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1357,5 +1371,6 @@ Partial Class TestSetup
     Friend WithEvents tb_CurrentH As System.Windows.Forms.TextBox
     Friend WithEvents lbl_CMC As System.Windows.Forms.Label
     Friend WithEvents tb_CMC As System.Windows.Forms.TextBox
+    Friend WithEvents cb_MoveDelay As System.Windows.Forms.CheckBox
 
 End Class
