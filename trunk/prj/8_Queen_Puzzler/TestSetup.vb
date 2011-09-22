@@ -3,6 +3,7 @@
 
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
+        fileParsingUtilities.getTestCases()
     End Sub
 
     Private Sub btn_CloseWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_CloseWindow.Click
@@ -12,10 +13,7 @@
     End Sub
 
     Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
-        Dim file As String
-        For Each file In ofd_TestCase.FileNames
-            fileParsingUtilities.getTestCases()
-        Next file
+        StartTests()
     End Sub
 
     Public Sub updateChessGrid(ByVal newPositionString As String)

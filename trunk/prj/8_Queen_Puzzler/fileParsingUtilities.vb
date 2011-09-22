@@ -3,6 +3,9 @@
 Module fileParsingUtilities
 
     Dim piecePositions As String
+    Dim TestCaseQL(0 To 0) As String
+    Dim TestCaseOS(0 To 0) As Integer
+    Dim myNumTC As Integer = 0
 
     Function getQueenInitialPositions(ByVal InitialLocationStringArray As String()) As Integer()
         Dim i As Integer
@@ -151,12 +154,15 @@ Module fileParsingUtilities
     End Function
 
     Sub getTestCases()
-        Dim myFileStream As Stream = TestSetup.ofd_TestCase.OpenFile
-        Dim myReader As StreamReader = New StreamReader(myFileStream)
-        While getSingleTestCase(myReader)
-            Delay(3)
-            'MsgBox("after delay!")
-        End While
+        For Each file In TestSetup.ofd_TestCase.FileNames
+
+            Dim myFileStream As Stream = TestSetup.ofd_TestCase.OpenFile
+            Dim myReader As StreamReader = New StreamReader(myFileStream)
+            Dim numTestCases As Integer = 0
+            While getSingleTestCase(myReader)
+                'MsgBox("after delay!")
+            End While
+        Next file
     End Sub
     Function getSingleTestCase(ByVal myreader As StreamReader) As Integer
 
@@ -165,26 +171,43 @@ Module fileParsingUtilities
             Return 0
         End If
 
-        SetupQueenslist(piecePositions)
+        ReDim Preserve TestCaseQL(0 To myNumTC + 1)
 
-        TestSetup.tb_N.Text = piecePositions.Length
-
-        TestSetup.updateChessGrid(piecePositions)
-        Delay(3)
-
-        piecePositions = SolveNQueen()
-
-        TestSetup.updateChessGrid(piecePositions)
+        TestCaseQL(myNumTC) = piecePositions
 
         Dim optimalSolution = getNonCommentLine(myreader)
-
-        TestSetup.tb_OMC.Text = optimalSolution
 
         If optimalSolution = "END" Then
             Return 0
         End If
+
+        ReDim Preserve TestCaseOS(0 To myNumTC + 1)
+        TestCaseOS(myNumTC) = optimalSolution
+
+        myNumTC += 1
         Return 1
     End Function
+
+    Sub StartTests()
+
+        For i = 0 To (TestCaseQL.Length - 2)
+            'MsgBox(TestCaseQL(i) & "and there will be " & (TestCaseQL.Length - 1) & " test cases")
+            SetupQueenslist(TestCaseQL(i))
+            TestSetup.updateChessGrid(TestCaseQL(i))
+            Delay(2)
+
+            TestSetup.tb_N.Text = TestCaseQL(i).Length
+            TestSetup.tb_OMC.Text = TestCaseOS(i)
+
+            nQueenUtilities.currentCycleCount = 0
+            TestSetup.tb_CMC.Text = 0
+
+            piecePositions = SolveNQueen()
+
+            TestSetup.updateChessGrid(piecePositions)
+        Next i
+
+    End Sub
 
     Function getNonCommentLine(ByVal myreader As StreamReader) As String
         Dim myReturnString As String = ""
