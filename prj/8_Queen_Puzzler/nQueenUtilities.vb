@@ -4,6 +4,13 @@
 
     Dim myList(7) As Queen
 
+    Public Sub clearData()
+        currentCycleCount = 0
+        For i = 0 To myList.Length - 1
+            myList(i) = New Queen("A", 1)
+        Next
+    End Sub
+
     Sub SetupQueenslist(ByVal posString As String)
         Dim myQ As Queen
         Dim myQueenName As String = "A"
@@ -19,7 +26,6 @@
         Dim myReturnString(7) As Char
         Dim LastTotalH As Integer = 0
         Dim TotalH As Integer = 0
-
         While (True)
             TotalH = 0
 
@@ -47,15 +53,13 @@
             TotalH = (TotalH / 2) 'remove the 2-way duplication
             TestSetup.tb_CurrentH.Text = TotalH
             'MsgBox("End of Round's Total H: " & TotalH)
-            If TotalH <> LastTotalH Then
-                LastTotalH = TotalH
-            ElseIf TotalH = 0 Then
+            If TotalH = 0 Or TotalH = LastTotalH Then
                 Exit While
             Else
-                Exit While
+                LastTotalH = TotalH
             End If
         End While
-        MsgBox("Solved!")
+        'MsgBox("Solved!")
         Return myReturnString
     End Function
 

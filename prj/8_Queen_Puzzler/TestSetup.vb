@@ -4,6 +4,7 @@
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
         fileParsingUtilities.getTestCases()
+        btn_StartTest.Enabled = True
     End Sub
 
     Private Sub btn_CloseWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_CloseWindow.Click
@@ -13,7 +14,13 @@
     End Sub
 
     Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
+        resetValues()
+        DisableInput()
         StartTests()
+        enableInput()
+        fileParsingUtilities.clearData()
+        nQueenUtilities.clearData()
+        btn_StartTest.Enabled = False
     End Sub
 
     Public Sub updateChessGrid(ByVal newPositionString As String)
@@ -629,5 +636,20 @@
             gb_Puz.Visible = False
             tb_PuzzleType.Text = ""
         End If
+    End Sub
+
+    Sub DisableInput()
+        gb_LoadTestCase.Enabled = False
+    End Sub
+
+    Sub enableInput()
+        gb_LoadTestCase.Enabled = True
+    End Sub
+
+    Sub resetValues()
+        tb_CMC.Text = 0
+        tb_CurrentH.Text = 0
+        tb_N.Text = 0
+        tb_OMC.Text = 0
     End Sub
 End Class

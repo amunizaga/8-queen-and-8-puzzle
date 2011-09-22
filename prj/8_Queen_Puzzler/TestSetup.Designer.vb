@@ -263,6 +263,7 @@ Partial Class TestSetup
         '
         'btn_StartTest
         '
+        Me.btn_StartTest.Enabled = False
         Me.btn_StartTest.Location = New System.Drawing.Point(13, 238)
         Me.btn_StartTest.Name = "btn_StartTest"
         Me.btn_StartTest.Size = New System.Drawing.Size(75, 23)
@@ -311,14 +312,17 @@ Partial Class TestSetup
         Me.lbl_CMC.AutoSize = True
         Me.lbl_CMC.Location = New System.Drawing.Point(244, 59)
         Me.lbl_CMC.Name = "lbl_CMC"
-        Me.lbl_CMC.Size = New System.Drawing.Size(79, 13)
+        Me.lbl_CMC.Size = New System.Drawing.Size(105, 13)
         Me.lbl_CMC.TabIndex = 9
-        Me.lbl_CMC.Text = "Current Moves:"
+        Me.lbl_CMC.Text = "Current Move Count:"
         '
         'tb_CMC
         '
+        Me.tb_CMC.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_CMC.ForeColor = System.Drawing.SystemColors.InfoText
         Me.tb_CMC.Location = New System.Drawing.Point(247, 76)
         Me.tb_CMC.Name = "tb_CMC"
+        Me.tb_CMC.ReadOnly = True
         Me.tb_CMC.Size = New System.Drawing.Size(100, 20)
         Me.tb_CMC.TabIndex = 8
         Me.tb_CMC.Text = "0"
@@ -334,16 +338,22 @@ Partial Class TestSetup
         '
         'tb_CurrentH
         '
+        Me.tb_CurrentH.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_CurrentH.ForeColor = System.Drawing.SystemColors.InfoText
         Me.tb_CurrentH.Location = New System.Drawing.Point(127, 76)
         Me.tb_CurrentH.Name = "tb_CurrentH"
+        Me.tb_CurrentH.ReadOnly = True
         Me.tb_CurrentH.Size = New System.Drawing.Size(100, 20)
         Me.tb_CurrentH.TabIndex = 6
         Me.tb_CurrentH.Text = "0"
         '
         'tb_PuzzleType
         '
+        Me.tb_PuzzleType.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_PuzzleType.ForeColor = System.Drawing.SystemColors.InfoText
         Me.tb_PuzzleType.Location = New System.Drawing.Point(127, 36)
         Me.tb_PuzzleType.Name = "tb_PuzzleType"
+        Me.tb_PuzzleType.ReadOnly = True
         Me.tb_PuzzleType.Size = New System.Drawing.Size(100, 20)
         Me.tb_PuzzleType.TabIndex = 5
         Me.tb_PuzzleType.Text = "Queen"
@@ -359,15 +369,18 @@ Partial Class TestSetup
         '
         'tb_OMC
         '
-        Me.tb_OMC.Location = New System.Drawing.Point(10, 77)
+        Me.tb_OMC.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_OMC.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.tb_OMC.Location = New System.Drawing.Point(247, 36)
         Me.tb_OMC.Name = "tb_OMC"
+        Me.tb_OMC.ReadOnly = True
         Me.tb_OMC.Size = New System.Drawing.Size(100, 20)
         Me.tb_OMC.TabIndex = 3
         '
         'lbl_OMC
         '
         Me.lbl_OMC.AutoSize = True
-        Me.lbl_OMC.Location = New System.Drawing.Point(7, 61)
+        Me.lbl_OMC.Location = New System.Drawing.Point(244, 20)
         Me.lbl_OMC.Name = "lbl_OMC"
         Me.lbl_OMC.Size = New System.Drawing.Size(106, 13)
         Me.lbl_OMC.TabIndex = 2
@@ -375,8 +388,11 @@ Partial Class TestSetup
         '
         'tb_N
         '
+        Me.tb_N.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_N.ForeColor = System.Drawing.SystemColors.InfoText
         Me.tb_N.Location = New System.Drawing.Point(10, 36)
         Me.tb_N.Name = "tb_N"
+        Me.tb_N.ReadOnly = True
         Me.tb_N.Size = New System.Drawing.Size(100, 20)
         Me.tb_N.TabIndex = 1
         '

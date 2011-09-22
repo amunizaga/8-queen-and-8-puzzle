@@ -198,8 +198,6 @@ Module fileParsingUtilities
 
             TestSetup.tb_N.Text = TestCaseQL(i).Length
             TestSetup.tb_OMC.Text = TestCaseOS(i)
-
-            nQueenUtilities.currentCycleCount = 0
             TestSetup.tb_CMC.Text = 0
 
             piecePositions = SolveNQueen()
@@ -241,6 +239,12 @@ Module fileParsingUtilities
             Application.DoEvents() ' Allow windows messages to be processed
         Loop
 
+    End Sub
+
+    Public Sub clearData()
+        ReDim Preserve TestCaseQL(0 To 0)
+        ReDim Preserve TestCaseOS(0 To 0)
+        myNumTC = 0
     End Sub
 
 End Module
