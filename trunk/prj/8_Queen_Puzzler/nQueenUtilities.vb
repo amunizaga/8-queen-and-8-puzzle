@@ -96,30 +96,40 @@
 
         Dim myOriginalH As Integer = computeQueensHNumber(myQueen)
 
-        myQueen.Row += 1
-
-        If myQueen.Row >= 9 Then
-            myQueen.Row = 1
-        End If
-
-        Dim myNewH As Integer = computeQueensHNumber(myQueen)
-
-        If myNewH >= myOriginalH Then
-            myQueen.Row -= 2
-            If myQueen.Row <= 0 Then
-                myQueen.Row = 8
-            End If
-            myNewH = computeQueensHNumber(myQueen)
-            If myNewH > myOriginalH Then
-                myQueen.Row = originalRow
-            End If
-        End If
-
         Dim myRand = Random(0, 80)
         If myRand > currentCycleCount Then
-            Dim mynewRand = Random(1, 8)
+
+            Dim mynewRand = WeightedRandom(myQueen.Row, 8)
             'MsgBox("Sending Queen " & myQueen.Name & " to row " & mynewRand)
             myQueen.Row = mynewRand
+            Dim myNewH As Integer = computeQueensHNumber(myQueen)
+            If myNewH >= myOriginalH Then
+                mynewRand = WeightedRandom(1, myQueen.Row)
+                myQueen.Row = mynewRand
+                myNewH = computeQueensHNumber(myQueen)
+                If myNewH > myOriginalH Then
+                    myQueen.Row = originalRow
+                End If
+            End If
+        Else
+            myQueen.Row += 1
+
+            If myQueen.Row >= 9 Then
+                myQueen.Row = 1
+            End If
+
+            Dim myNewH As Integer = computeQueensHNumber(myQueen)
+
+            If myNewH >= myOriginalH Then
+                myQueen.Row -= 2
+                If myQueen.Row <= 0 Then
+                    myQueen.Row = 8
+                End If
+                myNewH = computeQueensHNumber(myQueen)
+                If myNewH > myOriginalH Then
+                    myQueen.Row = originalRow
+                End If
+            End If
         End If
         currentCycleCount += 1
 
@@ -127,8 +137,15 @@
 
     Function Random(ByVal Lowerbound As Long, ByVal Upperbound As Long)
         Randomize()
-        Random = Int(Rnd() * Upperbound) + Lowerbound
+        Random = CInt(Rnd() * (Upperbound - Lowerbound)) + Lowerbound
     End Function
 
+    Function WeightedRandom(ByVal Lowerbound As Long, ByVal Upperbound As Long)
+        Dim temp As Single
+        Randomize()
+        temp = Rnd()
+        temp = temp * temp
+        WeightedRandom = CInt(temp * (Upperbound - Lowerbound)) + Lowerbound
+    End Function
 
 End Module
