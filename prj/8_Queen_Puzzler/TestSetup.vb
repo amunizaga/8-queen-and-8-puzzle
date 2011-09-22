@@ -1,5 +1,7 @@
 ﻿Public Class TestSetup
 
+    Public moveDelayEnabled As Boolean = True
+
 
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
@@ -651,5 +653,13 @@
         tb_CurrentH.Text = 0
         tb_N.Text = 0
         tb_OMC.Text = 0
+    End Sub
+
+    Private Sub cb_MoveDelay_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cb_MoveDelay.CheckedChanged
+        If cb_MoveDelay.Checked Then
+            moveDelayEnabled = True
+        Else
+            movedelayEnabled = False
+        End If
     End Sub
 End Class

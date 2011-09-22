@@ -32,8 +32,11 @@
             For i = 0 To (myList.Length - 1)
                 h = computeQueensHNumber(myList(i))
                 If (h > 0) Then
+                    Dim prevRow = myList(i).Row
                     MoveQueenInColumn(myList(i))
-                    TestSetup.tb_CMC.Text += 1
+                    If prevRow <> myList(i).Row Then
+                        TestSetup.tb_CMC.Text += 1
+                    End If
                 End If
             Next i
 
@@ -43,7 +46,9 @@
             Next i
 
             TestSetup.updateChessGrid(myReturnString)
-            fileParsingUtilities.Delay(1)
+            If TestSetup.moveDelayEnabled Then
+                fileParsingUtilities.Delay(1)
+            End If
 
             For i = 0 To (myList.Length - 1)
                 TotalH += computeQueensHNumber(myList(i))
@@ -53,7 +58,7 @@
             TotalH = (TotalH / 2) 'remove the 2-way duplication
             TestSetup.tb_CurrentH.Text = TotalH
             'MsgBox("End of Round's Total H: " & TotalH)
-            If TotalH = 0 Or TotalH = LastTotalH Then
+            If TotalH = 0 Then '  Or TotalH = LastTotalH
                 Exit While
             Else
                 LastTotalH = TotalH
@@ -96,15 +101,15 @@
 
         Dim myOriginalH As Integer = computeQueensHNumber(myQueen)
 
-        Dim myRand = Random(0, 80)
+        Dim myRand = Random(0, 1000)
         If myRand > currentCycleCount Then
 
-            Dim mynewRand = WeightedRandom(myQueen.Row, 8)
+            Dim mynewRand = Random(myQueen.Row + 1, 8)
             'MsgBox("Sending Queen " & myQueen.Name & " to row " & mynewRand)
             myQueen.Row = mynewRand
             Dim myNewH As Integer = computeQueensHNumber(myQueen)
             If myNewH >= myOriginalH Then
-                mynewRand = WeightedRandom(1, myQueen.Row)
+                mynewRand = Random(1, myQueen.Row - 1)
                 myQueen.Row = mynewRand
                 myNewH = computeQueensHNumber(myQueen)
                 If myNewH > myOriginalH Then
