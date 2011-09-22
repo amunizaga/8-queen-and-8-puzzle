@@ -44,6 +44,7 @@
             Next i
 
             TotalH = (TotalH / 2) 'remove the 2-way duplication
+            TestSetup.tb_CurrentH.Text = TotalH
             'MsgBox("End of Round's Total H: " & TotalH)
             If LastTotalH <> TotalH Then
                 LastTotalH = TotalH
@@ -68,16 +69,10 @@
     End Function
 
     Function computeCommonRowOrDiagonal(ByVal Queen1 As Queen, ByVal Queen2 As Queen) As Integer
-        Dim Q1AlgebraicNotation As String = Queen1.Name & Queen1.Row
-        Dim Q2AlgebraicNotation As String = Queen2.Name & Queen2.Row
-        Dim Q1NumeralLocation As Integer = fileParsingUtilities.convertAlgebraicNotationToNumeralPosition(Q1AlgebraicNotation)
-        Dim Q2NumeralLocation As Integer = fileParsingUtilities.convertAlgebraicNotationToNumeralPosition(Q2AlgebraicNotation)
-        'MsgBox("Q1 alg: " & Q1AlgebraicNotation & " Q1 num: " & Q1NumeralLocation & " Q2 alg: " & Q2AlgebraicNotation & " Q2 num: " & Q2NumeralLocation)
         If (Queen1.Name <> Queen2.Name) Then
             If (Queen1.Row = Queen2.Row) Then
                 Return 1 ' we have a common row
-            ElseIf (Math.Abs(Q1NumeralLocation - Q2NumeralLocation) Mod 9 = 0) Or
-                    (Math.Abs(Q1NumeralLocation - Q2NumeralLocation) Mod 7 = 0) Then
+            ElseIf (Math.Abs(Asc(Queen1.Name) - Asc(Queen2.Name)) = Math.Abs(Queen1.Row - Queen2.Row)) Then
                 Return 2 ' we have a common diagonal
             Else
                 Return 0 ' we have nothing in common!

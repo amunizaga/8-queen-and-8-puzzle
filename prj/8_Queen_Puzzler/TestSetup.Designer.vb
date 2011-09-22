@@ -114,6 +114,8 @@ Partial Class TestSetup
         Me.PictureBox67 = New System.Windows.Forms.PictureBox()
         Me.PictureBox66 = New System.Windows.Forms.PictureBox()
         Me.PictureBox65 = New System.Windows.Forms.PictureBox()
+        Me.tb_CurrentH = New System.Windows.Forms.TextBox()
+        Me.lbl_CurrentH = New System.Windows.Forms.Label()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -284,6 +286,8 @@ Partial Class TestSetup
         '
         'gb_TestCaseData
         '
+        Me.gb_TestCaseData.Controls.Add(Me.lbl_CurrentH)
+        Me.gb_TestCaseData.Controls.Add(Me.tb_CurrentH)
         Me.gb_TestCaseData.Controls.Add(Me.tb_PuzzleType)
         Me.gb_TestCaseData.Controls.Add(Me.lbl_PuzzleType)
         Me.gb_TestCaseData.Controls.Add(Me.tb_OMC)
@@ -1108,6 +1112,22 @@ Partial Class TestSetup
         Me.PictureBox65.TabIndex = 0
         Me.PictureBox65.TabStop = False
         '
+        'tb_CurrentH
+        '
+        Me.tb_CurrentH.Location = New System.Drawing.Point(127, 76)
+        Me.tb_CurrentH.Name = "tb_CurrentH"
+        Me.tb_CurrentH.Size = New System.Drawing.Size(100, 20)
+        Me.tb_CurrentH.TabIndex = 6
+        '
+        'lbl_CurrentH
+        '
+        Me.lbl_CurrentH.AutoSize = True
+        Me.lbl_CurrentH.Location = New System.Drawing.Point(124, 59)
+        Me.lbl_CurrentH.Name = "lbl_CurrentH"
+        Me.lbl_CurrentH.Size = New System.Drawing.Size(55, 13)
+        Me.lbl_CurrentH.TabIndex = 7
+        Me.lbl_CurrentH.Text = "Current H:"
+        '
         'TestSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1295,5 +1315,7 @@ Partial Class TestSetup
     Friend WithEvents PictureBox71 As System.Windows.Forms.PictureBox
     Friend WithEvents cb_Queen As System.Windows.Forms.CheckBox
     Friend WithEvents cb_Puzzle As System.Windows.Forms.CheckBox
+    Friend WithEvents lbl_CurrentH As System.Windows.Forms.Label
+    Friend WithEvents tb_CurrentH As System.Windows.Forms.TextBox
 
 End Class
