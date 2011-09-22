@@ -40,11 +40,11 @@
 
             For i = 0 To (myList.Length - 1)
                 TotalH += computeQueensHNumber(myList(i))
-                MsgBox("Column " & i & " h val: " & computeQueensHNumber(myList(i)))
+                'MsgBox("Column " & i & " h val: " & computeQueensHNumber(myList(i)))
             Next i
 
-            TotalH = (TotalH / 1) 'remove the 2-way duplication
-            MsgBox("End of Round's Total H: " & TotalH)
+            TotalH = (TotalH / 2) 'remove the 2-way duplication
+            'MsgBox("End of Round's Total H: " & TotalH)
             If LastTotalH <> TotalH Then
                 LastTotalH = TotalH
             Else

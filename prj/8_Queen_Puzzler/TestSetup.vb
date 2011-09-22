@@ -616,16 +616,20 @@
     Private Sub cb_Queen_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cb_Queen.CheckedChanged
         If cb_Queen.Checked Then
             gb_ChessBoard.Visible = True
+            tb_PuzzleType.Text = "Queen"
         Else
             gb_ChessBoard.Visible = False
+            tb_PuzzleType.Text = ""
         End If
     End Sub
 
     Private Sub cb_Puzzle_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cb_Puzzle.CheckedChanged
         If cb_Puzzle.Checked Then
             gb_Puz.Visible = True
+            tb_PuzzleType.Text = "Puzzle"
         Else
             gb_Puz.Visible = False
+            tb_PuzzleType.Text = ""
         End If
     End Sub
 End Class
