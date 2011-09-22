@@ -220,6 +220,8 @@ Partial Class TestSetup
         'cb_Queen
         '
         Me.cb_Queen.AutoSize = True
+        Me.cb_Queen.Checked = True
+        Me.cb_Queen.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cb_Queen.Location = New System.Drawing.Point(291, 29)
         Me.cb_Queen.Name = "cb_Queen"
         Me.cb_Queen.Size = New System.Drawing.Size(58, 17)
@@ -302,6 +304,7 @@ Partial Class TestSetup
         Me.tb_PuzzleType.Name = "tb_PuzzleType"
         Me.tb_PuzzleType.Size = New System.Drawing.Size(100, 20)
         Me.tb_PuzzleType.TabIndex = 5
+        Me.tb_PuzzleType.Text = "Queen"
         '
         'lbl_PuzzleType
         '
@@ -416,7 +419,6 @@ Partial Class TestSetup
         Me.gb_ChessBoard.TabIndex = 5
         Me.gb_ChessBoard.TabStop = False
         Me.gb_ChessBoard.Text = "nQueens"
-        Me.gb_ChessBoard.Visible = False
         '
         'pb_chessH1
         '

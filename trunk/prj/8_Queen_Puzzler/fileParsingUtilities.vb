@@ -167,6 +167,8 @@ Module fileParsingUtilities
 
         SetupQueenslist(piecePositions)
 
+        TestSetup.tb_N.Text = piecePositions.Length
+
         TestSetup.updateChessGrid(piecePositions)
         Delay(3)
 
@@ -175,6 +177,9 @@ Module fileParsingUtilities
         TestSetup.updateChessGrid(piecePositions)
 
         Dim optimalSolution = getNonCommentLine(myreader)
+
+        TestSetup.tb_OMC.Text = optimalSolution
+
         If optimalSolution = "END" Then
             Return 0
         End If
