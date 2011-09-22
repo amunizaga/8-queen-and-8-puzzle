@@ -33,6 +33,10 @@ Partial Class TestSetup
         Me.btn_CloseWindow = New System.Windows.Forms.Button()
         Me.ofd_TestCase = New System.Windows.Forms.OpenFileDialog()
         Me.gb_TestCaseData = New System.Windows.Forms.GroupBox()
+        Me.lbl_CMC = New System.Windows.Forms.Label()
+        Me.tb_CMC = New System.Windows.Forms.TextBox()
+        Me.lbl_CurrentH = New System.Windows.Forms.Label()
+        Me.tb_CurrentH = New System.Windows.Forms.TextBox()
         Me.tb_PuzzleType = New System.Windows.Forms.TextBox()
         Me.lbl_PuzzleType = New System.Windows.Forms.Label()
         Me.tb_OMC = New System.Windows.Forms.TextBox()
@@ -114,8 +118,6 @@ Partial Class TestSetup
         Me.PictureBox67 = New System.Windows.Forms.PictureBox()
         Me.PictureBox66 = New System.Windows.Forms.PictureBox()
         Me.PictureBox65 = New System.Windows.Forms.PictureBox()
-        Me.tb_CurrentH = New System.Windows.Forms.TextBox()
-        Me.lbl_CurrentH = New System.Windows.Forms.Label()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -286,6 +288,8 @@ Partial Class TestSetup
         '
         'gb_TestCaseData
         '
+        Me.gb_TestCaseData.Controls.Add(Me.lbl_CMC)
+        Me.gb_TestCaseData.Controls.Add(Me.tb_CMC)
         Me.gb_TestCaseData.Controls.Add(Me.lbl_CurrentH)
         Me.gb_TestCaseData.Controls.Add(Me.tb_CurrentH)
         Me.gb_TestCaseData.Controls.Add(Me.tb_PuzzleType)
@@ -297,10 +301,44 @@ Partial Class TestSetup
         Me.gb_TestCaseData.Enabled = False
         Me.gb_TestCaseData.Location = New System.Drawing.Point(13, 119)
         Me.gb_TestCaseData.Name = "gb_TestCaseData"
-        Me.gb_TestCaseData.Size = New System.Drawing.Size(267, 113)
+        Me.gb_TestCaseData.Size = New System.Drawing.Size(361, 113)
         Me.gb_TestCaseData.TabIndex = 3
         Me.gb_TestCaseData.TabStop = False
         Me.gb_TestCaseData.Text = "Test Case Data"
+        '
+        'lbl_CMC
+        '
+        Me.lbl_CMC.AutoSize = True
+        Me.lbl_CMC.Location = New System.Drawing.Point(244, 59)
+        Me.lbl_CMC.Name = "lbl_CMC"
+        Me.lbl_CMC.Size = New System.Drawing.Size(79, 13)
+        Me.lbl_CMC.TabIndex = 9
+        Me.lbl_CMC.Text = "Current Moves:"
+        '
+        'tb_CMC
+        '
+        Me.tb_CMC.Location = New System.Drawing.Point(247, 76)
+        Me.tb_CMC.Name = "tb_CMC"
+        Me.tb_CMC.Size = New System.Drawing.Size(100, 20)
+        Me.tb_CMC.TabIndex = 8
+        Me.tb_CMC.Text = "0"
+        '
+        'lbl_CurrentH
+        '
+        Me.lbl_CurrentH.AutoSize = True
+        Me.lbl_CurrentH.Location = New System.Drawing.Point(124, 59)
+        Me.lbl_CurrentH.Name = "lbl_CurrentH"
+        Me.lbl_CurrentH.Size = New System.Drawing.Size(55, 13)
+        Me.lbl_CurrentH.TabIndex = 7
+        Me.lbl_CurrentH.Text = "Current H:"
+        '
+        'tb_CurrentH
+        '
+        Me.tb_CurrentH.Location = New System.Drawing.Point(127, 76)
+        Me.tb_CurrentH.Name = "tb_CurrentH"
+        Me.tb_CurrentH.Size = New System.Drawing.Size(100, 20)
+        Me.tb_CurrentH.TabIndex = 6
+        Me.tb_CurrentH.Text = "0"
         '
         'tb_PuzzleType
         '
@@ -426,7 +464,7 @@ Partial Class TestSetup
         '
         'pb_chessH1
         '
-        Me.pb_chessH1.Image = CType(resources.GetObject("pb_chessH1.Image"), System.Drawing.Image)
+        Me.pb_chessH1.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessH1.InitialImage = CType(resources.GetObject("pb_chessH1.InitialImage"), System.Drawing.Image)
         Me.pb_chessH1.Location = New System.Drawing.Point(314, 55)
         Me.pb_chessH1.Name = "pb_chessH1"
@@ -508,7 +546,7 @@ Partial Class TestSetup
         '
         'pb_chessG2
         '
-        Me.pb_chessG2.Image = CType(resources.GetObject("pb_chessG2.Image"), System.Drawing.Image)
+        Me.pb_chessG2.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessG2.InitialImage = CType(resources.GetObject("pb_chessG2.InitialImage"), System.Drawing.Image)
         Me.pb_chessG2.Location = New System.Drawing.Point(270, 102)
         Me.pb_chessG2.Name = "pb_chessG2"
@@ -590,7 +628,7 @@ Partial Class TestSetup
         '
         'pb_chessF3
         '
-        Me.pb_chessF3.Image = CType(resources.GetObject("pb_chessF3.Image"), System.Drawing.Image)
+        Me.pb_chessF3.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessF3.InitialImage = CType(resources.GetObject("pb_chessF3.InitialImage"), System.Drawing.Image)
         Me.pb_chessF3.Location = New System.Drawing.Point(226, 147)
         Me.pb_chessF3.Name = "pb_chessF3"
@@ -672,7 +710,7 @@ Partial Class TestSetup
         '
         'pb_chessE4
         '
-        Me.pb_chessE4.Image = CType(resources.GetObject("pb_chessE4.Image"), System.Drawing.Image)
+        Me.pb_chessE4.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessE4.InitialImage = CType(resources.GetObject("pb_chessE4.InitialImage"), System.Drawing.Image)
         Me.pb_chessE4.Location = New System.Drawing.Point(182, 194)
         Me.pb_chessE4.Name = "pb_chessE4"
@@ -755,7 +793,7 @@ Partial Class TestSetup
         '
         'pb_chessD5
         '
-        Me.pb_chessD5.Image = CType(resources.GetObject("pb_chessD5.Image"), System.Drawing.Image)
+        Me.pb_chessD5.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessD5.InitialImage = CType(resources.GetObject("pb_chessD5.InitialImage"), System.Drawing.Image)
         Me.pb_chessD5.Location = New System.Drawing.Point(138, 241)
         Me.pb_chessD5.Name = "pb_chessD5"
@@ -838,7 +876,7 @@ Partial Class TestSetup
         '
         'pb_chessC6
         '
-        Me.pb_chessC6.Image = CType(resources.GetObject("pb_chessC6.Image"), System.Drawing.Image)
+        Me.pb_chessC6.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessC6.InitialImage = CType(resources.GetObject("pb_chessC6.InitialImage"), System.Drawing.Image)
         Me.pb_chessC6.Location = New System.Drawing.Point(94, 288)
         Me.pb_chessC6.Name = "pb_chessC6"
@@ -921,7 +959,7 @@ Partial Class TestSetup
         '
         'pb_chessB7
         '
-        Me.pb_chessB7.Image = CType(resources.GetObject("pb_chessB7.Image"), System.Drawing.Image)
+        Me.pb_chessB7.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessB7.InitialImage = CType(resources.GetObject("pb_chessB7.InitialImage"), System.Drawing.Image)
         Me.pb_chessB7.Location = New System.Drawing.Point(50, 333)
         Me.pb_chessB7.Name = "pb_chessB7"
@@ -1004,7 +1042,7 @@ Partial Class TestSetup
         '
         'pb_chessA8
         '
-        Me.pb_chessA8.Image = CType(resources.GetObject("pb_chessA8.Image"), System.Drawing.Image)
+        Me.pb_chessA8.Image = Global.WindowsApplication1.My.Resources.Resources.redChessSquare
         Me.pb_chessA8.InitialImage = CType(resources.GetObject("pb_chessA8.InitialImage"), System.Drawing.Image)
         Me.pb_chessA8.Location = New System.Drawing.Point(6, 380)
         Me.pb_chessA8.Name = "pb_chessA8"
@@ -1111,22 +1149,6 @@ Partial Class TestSetup
         Me.PictureBox65.Size = New System.Drawing.Size(40, 40)
         Me.PictureBox65.TabIndex = 0
         Me.PictureBox65.TabStop = False
-        '
-        'tb_CurrentH
-        '
-        Me.tb_CurrentH.Location = New System.Drawing.Point(127, 76)
-        Me.tb_CurrentH.Name = "tb_CurrentH"
-        Me.tb_CurrentH.Size = New System.Drawing.Size(100, 20)
-        Me.tb_CurrentH.TabIndex = 6
-        '
-        'lbl_CurrentH
-        '
-        Me.lbl_CurrentH.AutoSize = True
-        Me.lbl_CurrentH.Location = New System.Drawing.Point(124, 59)
-        Me.lbl_CurrentH.Name = "lbl_CurrentH"
-        Me.lbl_CurrentH.Size = New System.Drawing.Size(55, 13)
-        Me.lbl_CurrentH.TabIndex = 7
-        Me.lbl_CurrentH.Text = "Current H:"
         '
         'TestSetup
         '
@@ -1317,5 +1339,7 @@ Partial Class TestSetup
     Friend WithEvents cb_Puzzle As System.Windows.Forms.CheckBox
     Friend WithEvents lbl_CurrentH As System.Windows.Forms.Label
     Friend WithEvents tb_CurrentH As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_CMC As System.Windows.Forms.Label
+    Friend WithEvents tb_CMC As System.Windows.Forms.TextBox
 
 End Class

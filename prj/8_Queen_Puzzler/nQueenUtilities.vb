@@ -1,6 +1,6 @@
 ﻿Module nQueenUtilities
 
-
+    Public currentCycleCount As Integer = 0
 
     Dim myList(7) As Queen
 
@@ -27,6 +27,7 @@
                 h = computeQueensHNumber(myList(i))
                 If (h > 0) Then
                     MoveQueenInColumn(myList(i))
+                    TestSetup.tb_CMC.Text += 1
                 End If
             Next i
 
@@ -46,12 +47,15 @@
             TotalH = (TotalH / 2) 'remove the 2-way duplication
             TestSetup.tb_CurrentH.Text = TotalH
             'MsgBox("End of Round's Total H: " & TotalH)
-            If LastTotalH <> TotalH Then
+            If TotalH <> LastTotalH Then
                 LastTotalH = TotalH
+            ElseIf TotalH = 0 Then
+                Exit While
             Else
                 Exit While
             End If
         End While
+        MsgBox("Solved!")
         Return myReturnString
     End Function
 
@@ -107,7 +111,20 @@
             End If
         End If
 
+        Dim myRand = Random(0, 80)
+        If myRand > currentCycleCount Then
+            Dim mynewRand = Random(1, 8)
+            'MsgBox("Sending Queen " & myQueen.Name & " to row " & mynewRand)
+            myQueen.Row = mynewRand
+        End If
+        currentCycleCount += 1
+
     End Sub
+
+    Function Random(ByVal Lowerbound As Long, ByVal Upperbound As Long)
+        Randomize()
+        Random = Int(Rnd() * Upperbound) + Lowerbound
+    End Function
 
 
 End Module
