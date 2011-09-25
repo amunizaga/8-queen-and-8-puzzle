@@ -1,11 +1,25 @@
 ﻿Public Class TestSetup
 
     Public moveDelayEnabled As Boolean = True
+    Dim images() As System.Drawing.Bitmap = New System.Drawing.Bitmap() {
+        My.Resources.puzBlank,
+        My.Resources.puz1,
+        My.Resources.puz2,
+        My.Resources.puz3,
+        My.Resources.puz4,
+        My.Resources.puz5,
+        My.Resources.puz6,
+        My.Resources.puz7,
+        My.Resources.puz8
+    }
 
 
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
-        fileParsingUtilities.getTestCases()
+
+        ' if cb_Queen is checked get 8 Queens tests else 8 Puzzle tests
+        fileParsingUtilities.getTestCases(If(cb_Queen.Checked, "Q", "P"))
+
         btn_StartTest.Enabled = True
     End Sub
 
@@ -18,7 +32,7 @@
     Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
         resetValues()
         DisableInput()
-        StartTests()
+        StartTests(If(cb_Queen.Checked, "Q", "P"))
         enableInput()
         fileParsingUtilities.clearData()
         nQueenUtilities.clearData()
@@ -624,6 +638,9 @@
         If cb_Queen.Checked Then
             gb_ChessBoard.Visible = True
             tb_PuzzleType.Text = "Queen"
+            If cb_Puzzle.Checked Then
+                cb_Puzzle.Checked = False
+            End If
         Else
             gb_ChessBoard.Visible = False
             tb_PuzzleType.Text = ""
@@ -634,6 +651,9 @@
         If cb_Puzzle.Checked Then
             gb_Puz.Visible = True
             tb_PuzzleType.Text = "Puzzle"
+            If cb_Queen.Checked Then
+                cb_Queen.Checked = False
+            End If
         Else
             gb_Puz.Visible = False
             tb_PuzzleType.Text = ""
@@ -661,5 +681,36 @@
         Else
             movedelayEnabled = False
         End If
+    End Sub
+
+    Private Sub ofd_TestCase_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ofd_TestCase.FileOk
+
+    End Sub
+
+    Public Sub updateNPuzzleGrid(ByVal index As Integer, ByVal puzzlePiece As Integer)
+        Select Case index
+            Case 0
+                pb_puzzle1.Image = images(puzzlePiece)
+            Case 1
+                pb_puzzle2.Image = images(puzzlePiece)
+            Case 2
+                pb_puzzle3.Image = images(puzzlePiece)
+            Case 3
+                pb_puzzle4.Image = images(puzzlePiece)
+            Case 4
+                pb_puzzle5.Image = images(puzzlePiece)
+            Case 5
+                pb_puzzle6.Image = images(puzzlePiece)
+            Case 6
+                pb_puzzle7.Image = images(puzzlePiece)
+            Case 7
+                pb_puzzle8.Image = images(puzzlePiece)
+            Case 8
+                pb_puzzle9.Image = images(puzzlePiece)
+        End Select
+    End Sub
+
+    Private Sub PictureBox70_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pb_puzzle4.Click
+        pb_chessH1.Image = My.Resources.redChessSquare
     End Sub
 End Class
