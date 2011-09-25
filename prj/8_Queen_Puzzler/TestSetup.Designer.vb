@@ -24,6 +24,7 @@ Partial Class TestSetup
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TestSetup))
         Me.gb_LoadTestCase = New System.Windows.Forms.GroupBox()
+        Me.cb_MoveDelay = New System.Windows.Forms.CheckBox()
         Me.cb_Puzzle = New System.Windows.Forms.CheckBox()
         Me.cb_Queen = New System.Windows.Forms.CheckBox()
         Me.gb_TestOptions = New System.Windows.Forms.GroupBox()
@@ -109,16 +110,15 @@ Partial Class TestSetup
         Me.pb_chessB8 = New System.Windows.Forms.PictureBox()
         Me.pb_chessA8 = New System.Windows.Forms.PictureBox()
         Me.gb_Puz = New System.Windows.Forms.GroupBox()
-        Me.PictureBox71 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox72 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox73 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox68 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox69 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox70 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox67 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox66 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox65 = New System.Windows.Forms.PictureBox()
-        Me.cb_MoveDelay = New System.Windows.Forms.CheckBox()
+        Me.pb_puzzle9 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle8 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle7 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle6 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle5 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle4 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle3 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle2 = New System.Windows.Forms.PictureBox()
+        Me.pb_puzzle1 = New System.Windows.Forms.PictureBox()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -188,15 +188,15 @@ Partial Class TestSetup
         CType(Me.pb_chessB8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_chessA8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_Puz.SuspendLayout()
-        CType(Me.PictureBox71, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox72, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox73, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox68, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox69, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox70, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox67, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox66, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox65, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_puzzle1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gb_LoadTestCase
@@ -212,6 +212,18 @@ Partial Class TestSetup
         Me.gb_LoadTestCase.TabIndex = 0
         Me.gb_LoadTestCase.TabStop = False
         Me.gb_LoadTestCase.Text = "Load Test Case"
+        '
+        'cb_MoveDelay
+        '
+        Me.cb_MoveDelay.AutoSize = True
+        Me.cb_MoveDelay.Checked = True
+        Me.cb_MoveDelay.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cb_MoveDelay.Location = New System.Drawing.Point(291, 75)
+        Me.cb_MoveDelay.Name = "cb_MoveDelay"
+        Me.cb_MoveDelay.Size = New System.Drawing.Size(136, 17)
+        Me.cb_MoveDelay.TabIndex = 5
+        Me.cb_MoveDelay.Text = "Pause Between Moves"
+        Me.cb_MoveDelay.UseVisualStyleBackColor = True
         '
         'cb_Puzzle
         '
@@ -1070,15 +1082,15 @@ Partial Class TestSetup
         '
         'gb_Puz
         '
-        Me.gb_Puz.Controls.Add(Me.PictureBox71)
-        Me.gb_Puz.Controls.Add(Me.PictureBox72)
-        Me.gb_Puz.Controls.Add(Me.PictureBox73)
-        Me.gb_Puz.Controls.Add(Me.PictureBox68)
-        Me.gb_Puz.Controls.Add(Me.PictureBox69)
-        Me.gb_Puz.Controls.Add(Me.PictureBox70)
-        Me.gb_Puz.Controls.Add(Me.PictureBox67)
-        Me.gb_Puz.Controls.Add(Me.PictureBox66)
-        Me.gb_Puz.Controls.Add(Me.PictureBox65)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle9)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle8)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle7)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle6)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle5)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle4)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle3)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle2)
+        Me.gb_Puz.Controls.Add(Me.pb_puzzle1)
         Me.gb_Puz.Location = New System.Drawing.Point(387, 286)
         Me.gb_Puz.Name = "gb_Puz"
         Me.gb_Puz.Size = New System.Drawing.Size(166, 189)
@@ -1087,98 +1099,86 @@ Partial Class TestSetup
         Me.gb_Puz.Text = "Puzzle"
         Me.gb_Puz.Visible = False
         '
-        'PictureBox71
+        'pb_puzzle9
         '
-        Me.PictureBox71.Image = Global.WindowsApplication1.My.Resources.Resources.puzBlank
-        Me.PictureBox71.Location = New System.Drawing.Point(112, 127)
-        Me.PictureBox71.Name = "PictureBox71"
-        Me.PictureBox71.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox71.TabIndex = 8
-        Me.PictureBox71.TabStop = False
+        Me.pb_puzzle9.Image = Global.WindowsApplication1.My.Resources.Resources.puzBlank
+        Me.pb_puzzle9.Location = New System.Drawing.Point(112, 127)
+        Me.pb_puzzle9.Name = "pb_puzzle9"
+        Me.pb_puzzle9.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle9.TabIndex = 8
+        Me.pb_puzzle9.TabStop = False
         '
-        'PictureBox72
+        'pb_puzzle8
         '
-        Me.PictureBox72.Image = Global.WindowsApplication1.My.Resources.Resources.puz8
-        Me.PictureBox72.Location = New System.Drawing.Point(66, 127)
-        Me.PictureBox72.Name = "PictureBox72"
-        Me.PictureBox72.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox72.TabIndex = 7
-        Me.PictureBox72.TabStop = False
+        Me.pb_puzzle8.Image = Global.WindowsApplication1.My.Resources.Resources.puz8
+        Me.pb_puzzle8.Location = New System.Drawing.Point(66, 127)
+        Me.pb_puzzle8.Name = "pb_puzzle8"
+        Me.pb_puzzle8.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle8.TabIndex = 7
+        Me.pb_puzzle8.TabStop = False
         '
-        'PictureBox73
+        'pb_puzzle7
         '
-        Me.PictureBox73.Image = Global.WindowsApplication1.My.Resources.Resources.puz7
-        Me.PictureBox73.Location = New System.Drawing.Point(20, 127)
-        Me.PictureBox73.Name = "PictureBox73"
-        Me.PictureBox73.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox73.TabIndex = 6
-        Me.PictureBox73.TabStop = False
+        Me.pb_puzzle7.Image = Global.WindowsApplication1.My.Resources.Resources.puz7
+        Me.pb_puzzle7.Location = New System.Drawing.Point(20, 127)
+        Me.pb_puzzle7.Name = "pb_puzzle7"
+        Me.pb_puzzle7.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle7.TabIndex = 6
+        Me.pb_puzzle7.TabStop = False
         '
-        'PictureBox68
+        'pb_puzzle6
         '
-        Me.PictureBox68.Image = Global.WindowsApplication1.My.Resources.Resources.puz6
-        Me.PictureBox68.Location = New System.Drawing.Point(112, 81)
-        Me.PictureBox68.Name = "PictureBox68"
-        Me.PictureBox68.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox68.TabIndex = 5
-        Me.PictureBox68.TabStop = False
+        Me.pb_puzzle6.Image = Global.WindowsApplication1.My.Resources.Resources.puz6
+        Me.pb_puzzle6.Location = New System.Drawing.Point(112, 81)
+        Me.pb_puzzle6.Name = "pb_puzzle6"
+        Me.pb_puzzle6.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle6.TabIndex = 5
+        Me.pb_puzzle6.TabStop = False
         '
-        'PictureBox69
+        'pb_puzzle5
         '
-        Me.PictureBox69.Image = Global.WindowsApplication1.My.Resources.Resources.puz5
-        Me.PictureBox69.Location = New System.Drawing.Point(66, 81)
-        Me.PictureBox69.Name = "PictureBox69"
-        Me.PictureBox69.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox69.TabIndex = 4
-        Me.PictureBox69.TabStop = False
+        Me.pb_puzzle5.Image = Global.WindowsApplication1.My.Resources.Resources.puz5
+        Me.pb_puzzle5.Location = New System.Drawing.Point(66, 81)
+        Me.pb_puzzle5.Name = "pb_puzzle5"
+        Me.pb_puzzle5.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle5.TabIndex = 4
+        Me.pb_puzzle5.TabStop = False
         '
-        'PictureBox70
+        'pb_puzzle4
         '
-        Me.PictureBox70.Image = Global.WindowsApplication1.My.Resources.Resources.puz4
-        Me.PictureBox70.Location = New System.Drawing.Point(20, 81)
-        Me.PictureBox70.Name = "PictureBox70"
-        Me.PictureBox70.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox70.TabIndex = 3
-        Me.PictureBox70.TabStop = False
+        Me.pb_puzzle4.Image = Global.WindowsApplication1.My.Resources.Resources.puz4
+        Me.pb_puzzle4.Location = New System.Drawing.Point(20, 81)
+        Me.pb_puzzle4.Name = "pb_puzzle4"
+        Me.pb_puzzle4.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle4.TabIndex = 3
+        Me.pb_puzzle4.TabStop = False
         '
-        'PictureBox67
+        'pb_puzzle3
         '
-        Me.PictureBox67.Image = Global.WindowsApplication1.My.Resources.Resources.puz3
-        Me.PictureBox67.Location = New System.Drawing.Point(112, 35)
-        Me.PictureBox67.Name = "PictureBox67"
-        Me.PictureBox67.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox67.TabIndex = 2
-        Me.PictureBox67.TabStop = False
+        Me.pb_puzzle3.Image = Global.WindowsApplication1.My.Resources.Resources.puz3
+        Me.pb_puzzle3.Location = New System.Drawing.Point(112, 35)
+        Me.pb_puzzle3.Name = "pb_puzzle3"
+        Me.pb_puzzle3.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle3.TabIndex = 2
+        Me.pb_puzzle3.TabStop = False
         '
-        'PictureBox66
+        'pb_puzzle2
         '
-        Me.PictureBox66.Image = Global.WindowsApplication1.My.Resources.Resources.puz2
-        Me.PictureBox66.Location = New System.Drawing.Point(66, 35)
-        Me.PictureBox66.Name = "PictureBox66"
-        Me.PictureBox66.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox66.TabIndex = 1
-        Me.PictureBox66.TabStop = False
+        Me.pb_puzzle2.Image = Global.WindowsApplication1.My.Resources.Resources.puz2
+        Me.pb_puzzle2.Location = New System.Drawing.Point(66, 35)
+        Me.pb_puzzle2.Name = "pb_puzzle2"
+        Me.pb_puzzle2.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle2.TabIndex = 1
+        Me.pb_puzzle2.TabStop = False
         '
-        'PictureBox65
+        'pb_puzzle1
         '
-        Me.PictureBox65.Image = Global.WindowsApplication1.My.Resources.Resources.puz1
-        Me.PictureBox65.Location = New System.Drawing.Point(20, 35)
-        Me.PictureBox65.Name = "PictureBox65"
-        Me.PictureBox65.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox65.TabIndex = 0
-        Me.PictureBox65.TabStop = False
-        '
-        'cb_MoveDelay
-        '
-        Me.cb_MoveDelay.AutoSize = True
-        Me.cb_MoveDelay.Checked = True
-        Me.cb_MoveDelay.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cb_MoveDelay.Location = New System.Drawing.Point(291, 75)
-        Me.cb_MoveDelay.Name = "cb_MoveDelay"
-        Me.cb_MoveDelay.Size = New System.Drawing.Size(136, 17)
-        Me.cb_MoveDelay.TabIndex = 5
-        Me.cb_MoveDelay.Text = "Pause Between Moves"
-        Me.cb_MoveDelay.UseVisualStyleBackColor = True
+        Me.pb_puzzle1.Image = Global.WindowsApplication1.My.Resources.Resources.puz1
+        Me.pb_puzzle1.Location = New System.Drawing.Point(20, 35)
+        Me.pb_puzzle1.Name = "pb_puzzle1"
+        Me.pb_puzzle1.Size = New System.Drawing.Size(40, 40)
+        Me.pb_puzzle1.TabIndex = 0
+        Me.pb_puzzle1.TabStop = False
         '
         'TestSetup
         '
@@ -1264,15 +1264,15 @@ Partial Class TestSetup
         CType(Me.pb_chessB8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pb_chessA8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gb_Puz.ResumeLayout(False)
-        CType(Me.PictureBox71, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox72, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox73, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox68, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox69, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox70, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox67, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox66, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox65, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_puzzle1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1355,16 +1355,16 @@ Partial Class TestSetup
     Friend WithEvents pb_chessC7 As System.Windows.Forms.PictureBox
     Friend WithEvents pb_chessB7 As System.Windows.Forms.PictureBox
     Friend WithEvents pb_chessA7 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox65 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox66 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox67 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox70 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox69 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox68 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox73 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox72 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle2 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle3 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle4 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle5 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle6 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle7 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle8 As System.Windows.Forms.PictureBox
     Friend WithEvents gb_Puz As System.Windows.Forms.GroupBox
-    Friend WithEvents PictureBox71 As System.Windows.Forms.PictureBox
+    Friend WithEvents pb_puzzle9 As System.Windows.Forms.PictureBox
     Friend WithEvents cb_Queen As System.Windows.Forms.CheckBox
     Friend WithEvents cb_Puzzle As System.Windows.Forms.CheckBox
     Friend WithEvents lbl_CurrentH As System.Windows.Forms.Label

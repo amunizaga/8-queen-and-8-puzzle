@@ -3,7 +3,10 @@
 Module fileParsingUtilities
 
     Dim piecePositions As String
+    Dim puzzleType As String
     Dim TestCaseQL(0 To 0) As String
+    Dim TestCaseNPL(0 To 0) As String
+    Dim TestCaseNPS(0 To 0) As String
     Dim TestCaseOS(0 To 0) As Integer
     Dim myNumTC As Integer = 0
 
@@ -153,7 +156,8 @@ Module fileParsingUtilities
         End Select
     End Function
 
-    Sub getTestCases()
+    Sub getTestCases(ByVal typeOfPuzzle As String)
+        puzzleType = typeOfPuzzle
         For Each file In TestSetup.ofd_TestCase.FileNames
 
             Dim myFileStream As Stream = TestSetup.ofd_TestCase.OpenFile
@@ -165,15 +169,25 @@ Module fileParsingUtilities
         Next file
     End Sub
     Function getSingleTestCase(ByVal myreader As StreamReader) As Integer
+        puzzleType = If(TestSetup.cb_Queen.Checked, "Q", "P")
 
         piecePositions = getNonCommentLine(myreader)
         If piecePositions = "END" Then
             Return 0
         End If
 
-        ReDim Preserve TestCaseQL(0 To myNumTC + 1)
+        If puzzleType = "Q" Then ' parse as 8 queens puzzle
+            ReDim Preserve TestCaseQL(0 To myNumTC + 1)
+            TestCaseQL(myNumTC) = piecePositions
+        ElseIf puzzleType = "P" Then ' parse as 8 puzzle
+            ' 8 puzzle initial layout
+            ReDim Preserve TestCaseNPL(0 To myNumTC + 1)
+            TestCaseNPL(myNumTC) = piecePositions
 
-        TestCaseQL(myNumTC) = piecePositions
+            ' 8 puzzle goal state
+            ReDim Preserve TestCaseNPS(0 To myNumTC + 1)
+            TestCaseNPS(myNumTC) = getNonCommentLine(myreader)
+        End If
 
         Dim optimalSolution = getNonCommentLine(myreader)
 
@@ -188,7 +202,28 @@ Module fileParsingUtilities
         Return 1
     End Function
 
-    Sub StartTests()
+    Sub StartTests(ByVal By)
+        puzzleType = If(TestSetup.cb_Queen.Checked, "Q", "P")
+        If puzzleType = "Q" Then
+            StartNQueensTest()
+        ElseIf puzzleType = "P" Then
+            StartNPuzzleTest()
+        End If
+    End Sub
+
+    Sub StartNPuzzleTest()
+        For i = 0 To (TestCaseNPL.Length - 2)
+            InitializeNPuzzle(TestCaseNPL(i), TestCaseNPS(i))
+
+            TestSetup.tb_N.Text = TestCaseNPL(i).Length
+            TestSetup.tb_OMC.Text = TestCaseOS(0)
+            TestSetup.tb_CMC.Text = 0
+
+            SolveNPuzzle()
+        Next i
+
+    End Sub
+    Sub StartNQueensTest()
 
         For i = 0 To (TestCaseQL.Length - 2)
             'MsgBox(TestCaseQL(i) & "and there will be " & (TestCaseQL.Length - 1) & " test cases")

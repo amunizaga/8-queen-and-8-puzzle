@@ -1,0 +1,10 @@
+# Super easy
+# 8 Puzzle test
+# Initial configuration
+123456708
+# Goal Config
+123456780
+# Optimal move count
+1
+# End of file
+END
