@@ -2,32 +2,32 @@
 #
 # Case 1
 # Initial State
-15248376
+17582463
 # Optimal move count
-6
+0
 # Case 2
 # Initial State
-81325476
+17582465
 # Optimal move count
 9
 # Case 3
 # Initial State
-16274358
+17882465
 # Optimal move count
 9
 # Case 4
 # Initial State
-13456782
+44444444
 # Optimal move count
 11
 # Case 5
 # Initial State
-67213548
+12345678
 # Optimal move count
 14
 # Case 6
 # Initial State
-13576824
+17444463
 # Optimal move count
 15
 # Case 7
@@ -42,7 +42,7 @@
 12
 # Case 9
 # Initial State
-18537426
+11118888
 # Optimal move count
 11
 # Case 10
