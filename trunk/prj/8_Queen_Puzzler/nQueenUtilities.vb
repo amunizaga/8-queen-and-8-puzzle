@@ -36,7 +36,7 @@
         Dim moveCounter As Integer = 0
 
         'this is the simulated annealing section
-        If TestSetup.clb_OptionsList.GetItemChecked(0) Then
+        If TestSetup.clb_OptionsList.GetItemChecked(0) Or TestSetup.clb_OptionsList.GetItemChecked(1) Then
             While (True)
                 TotalH = 0
 
@@ -83,6 +83,8 @@
 
         'here lies genetic algorithm operations
         If TestSetup.clb_OptionsList.GetItemChecked(2) Then
+
+            TestSetup.DataGridView1.Visible = True
 
             'first, set up a society of 8 "starter" states. these will be totally random
             'but remember, theres no sense in moving a piece if its already at its h=0 state
@@ -153,6 +155,12 @@
                         End If
                     End If
 
+                    If TestSetup.moveDelayEnabled Then
+                        TestSetup.updateChessGrid(newReturnString)
+                        TestSetup.tb_CurrentH.Text = ChildsTotalH
+                        fileParsingUtilities.Delay(1)
+                    End If
+
                 Next
 
                 'MsgBox("pausing!")
@@ -198,7 +206,7 @@
         Dim myOriginalH As Integer = computeQueensHNumber(myQueen)
 
         Dim myRand = Random(0, 1000)
-        If myRand > currentCycleCount Then
+        If myRand > currentCycleCount And TestSetup.clb_OptionsList.GetItemChecked(1) Then
 
             Dim mynewRand = Random(myQueen.Row + 1, 8)
             'MsgBox("Sending Queen " & myQueen.Name & " to row " & mynewRand)
@@ -341,10 +349,6 @@
                 ReDim Preserve myPosStateArray(0 To myNumStates)(0 To i)
                 myPosStateArray(myNumStates)(i) = New Queen(myList(i).Name, myList(i).Row)
             Next
-
-            If TestSetup.moveDelayEnabled Then
-                fileParsingUtilities.Delay(1)
-            End If
 
             myNumStates += 1
         End While
