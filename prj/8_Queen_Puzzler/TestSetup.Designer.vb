@@ -119,6 +119,10 @@ Partial Class TestSetup
         Me.pb_puzzle3 = New System.Windows.Forms.PictureBox()
         Me.pb_puzzle2 = New System.Windows.Forms.PictureBox()
         Me.pb_puzzle1 = New System.Windows.Forms.PictureBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.stateName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Info = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.hVal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gb_LoadTestCase.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
@@ -197,6 +201,7 @@ Partial Class TestSetup
         CType(Me.pb_puzzle3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_puzzle2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_puzzle1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gb_LoadTestCase
@@ -1180,11 +1185,37 @@ Partial Class TestSetup
         Me.pb_puzzle1.TabIndex = 0
         Me.pb_puzzle1.TabStop = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stateName, Me.Info, Me.hVal})
+        Me.DataGridView1.Location = New System.Drawing.Point(387, 493)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(446, 369)
+        Me.DataGridView1.TabIndex = 7
+        '
+        'stateName
+        '
+        Me.stateName.HeaderText = "State Name"
+        Me.stateName.Name = "stateName"
+        '
+        'Info
+        '
+        Me.Info.HeaderText = "Info"
+        Me.Info.Name = "Info"
+        Me.Info.Width = 200
+        '
+        'hVal
+        '
+        Me.hVal.HeaderText = "H"
+        Me.hVal.Name = "hVal"
+        '
         'TestSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(715, 719)
+        Me.ClientSize = New System.Drawing.Size(845, 874)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gb_Puz)
         Me.Controls.Add(Me.gb_ChessBoard)
         Me.Controls.Add(Me.gb_TestCaseData)
@@ -1273,6 +1304,7 @@ Partial Class TestSetup
         CType(Me.pb_puzzle3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pb_puzzle2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pb_puzzle1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1372,5 +1404,9 @@ Partial Class TestSetup
     Friend WithEvents lbl_CMC As System.Windows.Forms.Label
     Friend WithEvents tb_CMC As System.Windows.Forms.TextBox
     Friend WithEvents cb_MoveDelay As System.Windows.Forms.CheckBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents stateName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Info As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents hVal As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

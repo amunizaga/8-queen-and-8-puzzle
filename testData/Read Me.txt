@@ -1,1 +1,0 @@
-Each team should have a 2 plain text (.TXT) documents on file here.The format of the data should omply with the decisions made in class.

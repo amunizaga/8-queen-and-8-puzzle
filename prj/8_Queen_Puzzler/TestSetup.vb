@@ -683,10 +683,6 @@
         End If
     End Sub
 
-    Private Sub ofd_TestCase_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ofd_TestCase.FileOk
-
-    End Sub
-
     Public Sub updateNPuzzleGrid(ByVal index As Integer, ByVal puzzlePiece As Integer)
         Select Case index
             Case 0
@@ -713,4 +709,5 @@
     Private Sub PictureBox70_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pb_puzzle4.Click
         pb_chessH1.Image = My.Resources.redChessSquare
     End Sub
+
 End Class

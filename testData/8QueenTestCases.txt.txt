@@ -1,0 +1,54 @@
+# 8 Queen Test Cases
+#
+# Case 1
+# Initial State
+15248376
+# Optimal move count
+6
+# Case 2
+# Initial State
+81325476
+# Optimal move count
+9
+# Case 3
+# Initial State
+16274358
+# Optimal move count
+9
+# Case 4
+# Initial State
+13456782
+# Optimal move count
+11
+# Case 5
+# Initial State
+67213548
+# Optimal move count
+14
+# Case 6
+# Initial State
+13576824
+# Optimal move count
+15
+# Case 7
+# Initial State
+43627518
+# Optimal move count
+16
+# Case 8
+# Initial State
+13265487
+# Optimal move count
+12
+# Case 9
+# Initial State
+18537426
+# Optimal move count
+11
+# Case 10
+# Initial State
+12643785
+# Optimal move count
+10
+# End of file
+END

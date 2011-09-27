@@ -159,8 +159,12 @@ Module fileParsingUtilities
     Sub getTestCases(ByVal typeOfPuzzle As String)
         puzzleType = typeOfPuzzle
         For Each file In TestSetup.ofd_TestCase.FileNames
-
-            Dim myFileStream As Stream = TestSetup.ofd_TestCase.OpenFile
+            Dim myFileStream As Stream
+            Try
+                myFileStream = TestSetup.ofd_TestCase.OpenFile
+            Catch ex As Exception
+                Exit Sub
+            End Try
             Dim myReader As StreamReader = New StreamReader(myFileStream)
             Dim numTestCases As Integer = 0
             While getSingleTestCase(myReader)
