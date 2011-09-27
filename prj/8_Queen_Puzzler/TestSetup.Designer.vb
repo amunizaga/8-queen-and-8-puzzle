@@ -264,8 +264,9 @@ Partial Class TestSetup
         '
         'clb_OptionsList
         '
+        Me.clb_OptionsList.CheckOnClick = True
         Me.clb_OptionsList.FormattingEnabled = True
-        Me.clb_OptionsList.Items.AddRange(New Object() {"Simulated Annealing", "Hill Climb", "Genetic Algorithm", "Local Beam"})
+        Me.clb_OptionsList.Items.AddRange(New Object() {"Hill Climb", "HC with Annealing", "Genetic Algorithm", "Local Beam"})
         Me.clb_OptionsList.Location = New System.Drawing.Point(7, 20)
         Me.clb_OptionsList.Name = "clb_OptionsList"
         Me.clb_OptionsList.Size = New System.Drawing.Size(160, 49)
@@ -1191,8 +1192,9 @@ Partial Class TestSetup
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stateName, Me.Info, Me.hVal})
         Me.DataGridView1.Location = New System.Drawing.Point(387, 493)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(446, 369)
+        Me.DataGridView1.Size = New System.Drawing.Size(446, 213)
         Me.DataGridView1.TabIndex = 7
+        Me.DataGridView1.Visible = False
         '
         'stateName
         '
@@ -1214,7 +1216,7 @@ Partial Class TestSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(845, 874)
+        Me.ClientSize = New System.Drawing.Size(845, 723)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gb_Puz)
         Me.Controls.Add(Me.gb_ChessBoard)

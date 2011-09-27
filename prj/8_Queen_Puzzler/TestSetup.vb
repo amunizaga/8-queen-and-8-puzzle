@@ -14,8 +14,15 @@
     }
 
 
+
+    ' here, we can put anything we want to be enabled upon startup
+    Private Sub TestSetup_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        clb_OptionsList.SetItemChecked(0, True)
+    End Sub
+
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
+
 
         ' if cb_Queen is checked get 8 Queens tests else 8 Puzzle tests
         fileParsingUtilities.getTestCases(If(cb_Queen.Checked, "Q", "P"))
@@ -29,14 +36,18 @@
         End
     End Sub
 
-    Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
-        btn_StartTest.Enabled = False
-        resetValues()
-        DisableInput()
-        StartTests(If(cb_Queen.Checked, "Q", "P"))
-        enableInput()
-        fileParsingUtilities.clearData()
-        nQueenUtilities.clearData()
+    Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click     
+        If clb_OptionsList.CheckedItems.Count > 0 Then
+            btn_StartTest.Enabled = False
+            resetValues()
+            DisableInput()
+            StartTests(If(cb_Queen.Checked, "Q", "P"))
+            enableInput()
+            fileParsingUtilities.clearData()
+            nQueenUtilities.clearData()
+        Else
+            MsgBox("Make sure you have at least 1 option checked")
+        End If
     End Sub
 
     Public Sub updateChessGrid(ByVal newPositionString As String)
@@ -709,5 +720,4 @@
     Private Sub PictureBox70_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pb_puzzle4.Click
         pb_chessH1.Image = My.Resources.redChessSquare
     End Sub
-
 End Class
