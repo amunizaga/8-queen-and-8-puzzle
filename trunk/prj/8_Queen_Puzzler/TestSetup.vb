@@ -30,13 +30,13 @@
     End Sub
 
     Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
+        btn_StartTest.Enabled = False
         resetValues()
         DisableInput()
         StartTests(If(cb_Queen.Checked, "Q", "P"))
         enableInput()
         fileParsingUtilities.clearData()
         nQueenUtilities.clearData()
-        btn_StartTest.Enabled = False
     End Sub
 
     Public Sub updateChessGrid(ByVal newPositionString As String)
