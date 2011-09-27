@@ -156,19 +156,19 @@ Module fileParsingUtilities
         End Select
     End Function
 
-    Sub getTestCases(ByVal typeOfPuzzle As String)
-        puzzleType = typeOfPuzzle
+    Sub getTestCases()
+        Dim myReader As StreamReader
         For Each file In TestSetup.ofd_TestCase.FileNames
-            Dim myFileStream As Stream
             Try
-                myFileStream = TestSetup.ofd_TestCase.OpenFile
+                myReader = New System.IO.StreamReader(file)
             Catch ex As Exception
+                MsgBox("Could not Open test case file!")
                 Exit Sub
             End Try
-            Dim myReader As StreamReader = New StreamReader(myFileStream)
+            'Dim  As StreamReader = New StreamReader(myFileStream)
             Dim numTestCases As Integer = 0
             While getSingleTestCase(myReader)
-                'MsgBox("after delay!")
+                'MsgBox("got a test case!")
             End While
         Next file
     End Sub
@@ -181,9 +181,19 @@ Module fileParsingUtilities
         End If
 
         If puzzleType = "Q" Then ' parse as 8 queens puzzle
+            If piecePositions.Length > 8 Then
+                MsgBox("You probably loaded a puzzle file. try again!")
+                Return 0
+            End If
             ReDim Preserve TestCaseQL(0 To myNumTC + 1)
             TestCaseQL(myNumTC) = piecePositions
+            'MsgBox("added a test case! It is number " & myNumTC & " and has data: " & piecePositions)
         ElseIf puzzleType = "P" Then ' parse as 8 puzzle
+
+            If piecePositions.Length <= 8 Then
+                MsgBox("You probably loaded a queen file. try again!")
+                Return 0
+            End If
             ' 8 puzzle initial layout
             ReDim Preserve TestCaseNPL(0 To myNumTC + 1)
             TestCaseNPL(myNumTC) = piecePositions
@@ -242,6 +252,7 @@ Module fileParsingUtilities
             piecePositions = SolveNQueen()
 
             TestSetup.updateChessGrid(piecePositions)
+            'MsgBox("Solved Puzzle " & i & " out of " & (TestCaseQL.Length - 2))
         Next i
 
     End Sub
