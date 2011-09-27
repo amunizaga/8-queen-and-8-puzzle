@@ -25,7 +25,7 @@
 
 
         ' if cb_Queen is checked get 8 Queens tests else 8 Puzzle tests
-        fileParsingUtilities.getTestCases(If(cb_Queen.Checked, "Q", "P"))
+        fileParsingUtilities.getTestCases()
 
         btn_StartTest.Enabled = True
     End Sub

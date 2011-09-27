@@ -34,6 +34,7 @@
         Dim TotalH As Integer = 0
         Dim savedStates As Integer = 0
         Dim moveCounter As Integer = 0
+        currentCycleCount = 0
 
         'this is the simulated annealing section
         If TestSetup.clb_OptionsList.GetItemChecked(0) Or TestSetup.clb_OptionsList.GetItemChecked(1) Then
@@ -63,7 +64,7 @@
                 Next i
 
                 TotalH = (TotalH / 2) 'remove the 2-way duplication
-                If TotalH = 0 Then
+                If TotalH = 0 Or currentCycleCount >= 4000 Then
                     Exit While
                 Else
                     LastTotalH = TotalH
@@ -219,6 +220,12 @@
                 If myNewH > myOriginalH Then
                     myQueen.Row = originalRow
                 End If
+            End If
+            If myQueen.Row >= 9 Then
+                myQueen.Row = 1
+            End If
+            If myQueen.Row <= 0 Then
+                myQueen.Row = 8
             End If
         Else
             myQueen.Row += 1
