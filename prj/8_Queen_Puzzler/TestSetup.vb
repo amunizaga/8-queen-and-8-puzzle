@@ -720,4 +720,5 @@
     Private Sub PictureBox70_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pb_puzzle4.Click
         pb_chessH1.Image = My.Resources.redChessSquare
     End Sub
+
 End Class

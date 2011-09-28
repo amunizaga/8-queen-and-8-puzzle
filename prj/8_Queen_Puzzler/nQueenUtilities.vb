@@ -331,6 +331,47 @@
         End If
     End Function
 
+
+    Sub queenOptimal(ByVal queen As String)
+        Dim queenSolutions(92) As String
+        Dim i As Integer
+        Dim j As Integer
+        Dim optimalSolution As Integer
+        Dim temp As Integer
+        Dim q1 As Queen
+        Dim q2 As Queen
+        Dim qList(7) As Queen
+
+        queenSolutions = {"17582463", "17468253", "16837425", "15863724", "61528374", "41582736", "51842736", "31758246", "51468273", "71386425",
+                          "51863724", "41586372", "26174835", "53172864", "83162574", "46152837", "57142863", "63184275", "53168247", "63185247",
+                          "48136275", "84136275", "48157263", "47185263", "64158273", "63175824", "73168524", "57138642", "25713864", "28613574",
+                          "62713584", "72418536", "82417536", "52814736", "62714853", "52617483", "35714286", "64718253", "58417263", "36815724",
+                          "75316824", "64713528", "58413627", "36418572", "36814752", "57413862", "26831475", "25741863", "27581463", "72631485",
+                          "82531746", "42861357", "42751863", "36271485", "35281746", "68241753", "38471625", "35841726", "63741825", "63571428",
+                          "63581427", "48531726", "47531682", "46831752", "24683175", "42586137", "42857136", "37285146", "36258174", "36275184",
+                          "57263148", "57263184", "74258136", "74286135", "57248136", "36824175", "73825164", "47526138", "46827135", "53847162",
+                          "27368514", "42736815", "52468317", "37286415", "64285713", "63724815", "63728514", "47382516", "42736851", "52473861",
+                          "35286471", "36428571"}
+
+
+
+        For i = 0 To 91
+            Dim myQueenName As String = "A"
+            For j = 0 To (queenSolutions(i).Length - 1)
+                q2 = New Queen(myQueenName, queenSolutions(i).Substring(j, 1))
+                qList(j) = q2
+                myQueenName = Chr(Asc(myQueenName) + 1)
+            Next j
+            For j = 0 To 7
+                temp += Math.Abs(myList(j).Row - qList(j).Row)
+            Next j
+            If (temp < optimalSolution Or i = 0) Then
+                optimalSolution = temp
+            End If
+        Next
+        TestSetup.tb_calc_omc.Text = optimalSolution
+    End Sub
+
     Sub createFirstGeneration()
         Dim h As Integer = 0
         myNumStates = 0
