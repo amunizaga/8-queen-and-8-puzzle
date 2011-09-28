@@ -34,6 +34,8 @@ Partial Class TestSetup
         Me.btn_CloseWindow = New System.Windows.Forms.Button()
         Me.ofd_TestCase = New System.Windows.Forms.OpenFileDialog()
         Me.gb_TestCaseData = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tb_calc_omc = New System.Windows.Forms.TextBox()
         Me.lbl_CMC = New System.Windows.Forms.Label()
         Me.tb_CMC = New System.Windows.Forms.TextBox()
         Me.lbl_CurrentH = New System.Windows.Forms.Label()
@@ -309,6 +311,8 @@ Partial Class TestSetup
         '
         'gb_TestCaseData
         '
+        Me.gb_TestCaseData.Controls.Add(Me.Label1)
+        Me.gb_TestCaseData.Controls.Add(Me.tb_calc_omc)
         Me.gb_TestCaseData.Controls.Add(Me.lbl_CMC)
         Me.gb_TestCaseData.Controls.Add(Me.tb_CMC)
         Me.gb_TestCaseData.Controls.Add(Me.lbl_CurrentH)
@@ -326,6 +330,25 @@ Partial Class TestSetup
         Me.gb_TestCaseData.TabIndex = 3
         Me.gb_TestCaseData.TabStop = False
         Me.gb_TestCaseData.Text = "Test Case Data"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(7, 59)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "OMC:"
+        '
+        'tb_calc_omc
+        '
+        Me.tb_calc_omc.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tb_calc_omc.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.tb_calc_omc.Location = New System.Drawing.Point(10, 76)
+        Me.tb_calc_omc.Name = "tb_calc_omc"
+        Me.tb_calc_omc.ReadOnly = True
+        Me.tb_calc_omc.Size = New System.Drawing.Size(100, 20)
+        Me.tb_calc_omc.TabIndex = 10
         '
         'lbl_CMC
         '
@@ -1410,5 +1433,7 @@ Partial Class TestSetup
     Friend WithEvents stateName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Info As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents hVal As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents tb_calc_omc As System.Windows.Forms.TextBox
 
 End Class

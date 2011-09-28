@@ -242,6 +242,7 @@ Module fileParsingUtilities
         For i = 0 To (TestCaseQL.Length - 2)
             'MsgBox(TestCaseQL(i) & "and there will be " & (TestCaseQL.Length - 1) & " test cases")
             SetupQueenslist(TestCaseQL(i))
+            queenOptimal(TestCaseQL(i))
             TestSetup.updateChessGrid(TestCaseQL(i))
             Delay(2)
 
