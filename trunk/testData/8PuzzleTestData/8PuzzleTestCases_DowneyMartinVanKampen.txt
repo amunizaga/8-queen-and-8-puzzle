@@ -55,7 +55,7 @@
 # Goal State
 123456780
 # Optimal move count
-12?
+12
 # Case 9
 # Initial State
 180537426
