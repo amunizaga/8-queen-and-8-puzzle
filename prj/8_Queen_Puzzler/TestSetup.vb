@@ -1,5 +1,7 @@
 ﻿Public Class TestSetup
 
+    Public myBestGoalState As String = "string"
+
     Public moveDelayEnabled As Boolean = True
     Dim images() As System.Drawing.Bitmap = New System.Drawing.Bitmap() {
         My.Resources.puzBlank,
@@ -36,7 +38,7 @@
         End
     End Sub
 
-    Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click     
+    Private Sub btn_StartTest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_StartTest.Click
         If clb_OptionsList.CheckedItems.Count > 0 Then
             btn_StartTest.Enabled = False
             resetValues()
@@ -690,7 +692,7 @@
         If cb_MoveDelay.Checked Then
             moveDelayEnabled = True
         Else
-            movedelayEnabled = False
+            moveDelayEnabled = False
         End If
     End Sub
 

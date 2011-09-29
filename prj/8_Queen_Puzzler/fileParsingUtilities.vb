@@ -226,18 +226,46 @@ Module fileParsingUtilities
     End Sub
 
     Sub StartNPuzzleTest()
+
+        Dim logfileName As String
+        Dim curDate As String
+        Dim curTime As String
+
+        curDate = Date.Now.Month & "_" & Date.Now.Day & "_" & Date.Now.Year
+        curTime = Date.Now.Hour & Date.Now.Minute & Date.Now.Second
+
+
+        logfileName = "./QueensTest_" & curDate & "_" & curTime & ".txt"
+
+        'loggingUtilities.setLogName(logfileName)
         For i = 0 To (TestCaseNPL.Length - 2)
             InitializeNPuzzle(TestCaseNPL(i), TestCaseNPS(i))
 
             TestSetup.tb_N.Text = TestCaseNPL(i).Length
             TestSetup.tb_OMC.Text = TestCaseOS(0)
             TestSetup.tb_CMC.Text = 0
+            'loggingUtilities.logTestCaseResult("Solving " & TestCaseNPL(i))
 
             SolveNPuzzle()
+
+
+            'loggingUtilities.logTestCaseResult("Solved to " & piecePositions & " in " & TestSetup.tb_OMC.Text & " moves.")
         Next i
 
     End Sub
     Sub StartNQueensTest()
+
+        Dim logfileName As String
+        Dim curDate As String
+        Dim curTime As String
+
+
+        curDate = Date.Now.Month & "_" & Date.Now.Day & "_" & Date.Now.Year
+        curTime = Date.Now.Hour & Date.Now.Minute & Date.Now.Second
+
+        logfileName = "./QueensTest_" & curDate & "_" & curTime & ".txt"
+
+        loggingUtilities.setLogName(logfileName)
 
         For i = 0 To (TestCaseQL.Length - 2)
             'MsgBox(TestCaseQL(i) & "and there will be " & (TestCaseQL.Length - 1) & " test cases")
@@ -250,10 +278,13 @@ Module fileParsingUtilities
             TestSetup.tb_OMC.Text = TestCaseOS(i)
             TestSetup.tb_CMC.Text = 0
 
+            loggingUtilities.logTestCaseResult("Solving " & TestCaseQL(i))
+
             piecePositions = SolveNQueen()
 
             TestSetup.updateChessGrid(piecePositions)
-            'MsgBox("Solved Puzzle " & i & " out of " & (TestCaseQL.Length - 2))
+            loggingUtilities.logTestCaseResult("Solved to " & piecePositions & " in " & TestSetup.tb_OMC.Text & " moves.")
+            'MsgBox("Solved Puzzle " & (i + 1) & " out of " & (TestCaseQL.Length - 1) & " with goal state: " & TestSetup.myBestGoalState)
         Next i
 
     End Sub

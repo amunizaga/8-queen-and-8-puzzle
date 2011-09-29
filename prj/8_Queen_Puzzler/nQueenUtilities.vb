@@ -354,6 +354,7 @@
                           "35286471", "36428571"}
 
 
+        optimalSolution = 0
 
         For i = 0 To 91
             Dim myQueenName As String = "A"
@@ -362,10 +363,12 @@
                 qList(j) = q2
                 myQueenName = Chr(Asc(myQueenName) + 1)
             Next j
-            For j = 0 To 7
-                temp += Math.Abs(myList(j).Row - qList(j).Row)
-            Next j
+            temp = 0
+            For k = 0 To 7
+                temp += Math.Abs(myList(k).Row - qList(k).Row)
+            Next k
             If (temp < optimalSolution Or i = 0) Then
+                TestSetup.myBestGoalState = queenSolutions(i)
                 optimalSolution = temp
             End If
         Next
