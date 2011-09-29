@@ -1,0 +1,74 @@
+# 8 Puzzle Test Cases
+#
+# Case 1
+# Initial State
+152483076
+# Goal State
+123456780
+# Optimal move count
+6
+# Case 2
+# Initial State
+813025476
+# Goal State
+123456780
+# Optimal move count
+9
+# Case 3
+# Initial State
+162743508
+# Goal State
+123456780
+# Optimal move count
+9
+# Case 4
+# Initial State
+103456782
+# Goal State
+123456780
+# Optimal move count
+11
+# Case 5
+# Initial State
+672103548
+# Goal State
+123456780
+# Optimal move count
+14
+# Case 6
+# Initial State
+135768204
+# Goal State
+123456780
+# Optimal move count
+15
+# Case 7
+# Initial State
+436207518
+# Goal State
+123456780
+# Optimal move count
+16
+# Case 8
+# Initial State
+132650487
+# Goal State
+123456780
+# Optimal move count
+12?
+# Case 9
+# Initial State
+180537426
+# Goal State
+513268407
+# Optimal move count
+11
+# Case 10
+# Initial State
+120643785
+# Goal State
+012345678
+# Optimal move count
+10
+# End of file
+END

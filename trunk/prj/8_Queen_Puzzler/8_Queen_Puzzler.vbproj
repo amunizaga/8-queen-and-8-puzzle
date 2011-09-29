@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="fileParsingUtilities.vb" />
+    <Compile Include="loggingUtilities.vb" />
     <Compile Include="nPuzzleUtilities.vb" />
     <Compile Include="nQueenUtilities.vb" />
     <Compile Include="Queen.vb" />
