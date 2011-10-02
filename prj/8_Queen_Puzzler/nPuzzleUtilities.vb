@@ -2,7 +2,6 @@
 
     Dim board() As Integer
     Dim goal() As Integer
-    Dim moveString As String = ""
 
     Private spaceIndex As Integer = 0
     Public boardNumber As Integer = 0
@@ -10,7 +9,10 @@
     Private inverseOfPreviousAction As Integer = -1
     Private delayTime As Integer = 1
     Private moveCount As Integer = 0
-    Private maxMoveCount As Integer = 4000
+    Private maxMoveCount As Integer = 10000
+    Private problemString As String = ""
+
+    Private method As String = ""
 
     Dim t As Double = 1000
     Dim deltaE As Double = 0.0
@@ -22,10 +24,9 @@
     End Enum
 
     Function SolveNPuzzle()
-        'CheckForCycle()
         Dim nextAction As Integer
         Dim actionStr As String = ""
-        Delay(2)
+        ' Delay(2)
 
         ' calculate and display the h value of the initial state
         currentH = HeuristicFunction(-1)
@@ -36,31 +37,47 @@
                 Delay(delayTime)
             End If
 
-            If TestSetup.clb_OptionsList.GetItemChecked(0) Then
+            ' execute the action search the user has selected
+            If TestSetup.CheckBox1.Checked Then
+                method = "Steepest Ascent Hill Climbing"
                 nextAction = SelectActionWithStandardHillClimbing()
-            ElseIf TestSetup.clb_OptionsList.GetItemChecked(1) Then
+            ElseIf TestSetup.CheckBox2.Checked Then
+                method = "First Choice Hill Climbing"
                 nextAction = SelectActionWithFirstChoiceHillClimbing()
-            ElseIf TestSetup.clb_OptionsList.GetItemChecked(2) Then
+            ElseIf TestSetup.CheckBox3.Checked Then
+                method = "Simulated Annealing Hill Climbing"
                 nextAction = SelectActionWithSimulatedAnnealing()
-            ElseIf TestSetup.clb_OptionsList.GetItemChecked(3) Then
+            ElseIf TestSetup.CheckBox4.Checked Then
+                method = "Greedy Best Choice Non-Hill Climbing"
                 nextAction = SelectAction()
             End If
+
+            ' move on to the next test if we're stuck
             If (IsStuck(nextAction)) Then
                 Exit While
             End If
-            moveString = String.Concat(moveString, nextAction.ToString())
+
             SetInverseOfPreviousAction(nextAction)
             MovePuzzlePiece(nextAction)
         End While
 
-        TestSetup.tb_calc_omc.Text = T
+        ' prep data for logging
+        If nextAction = -1 Then
+            fileParsingUtilities.outcome = "Stuck,"
+        ElseIf moveCount = maxMoveCount Then
+            fileParsingUtilities.outcome = "Unsolved,"
+        Else
+            fileParsingUtilities.outcome = "Solved,"
+        End If
+
+        ' set values for logging
+        outcome += moveCount & "," & TestSetup.tb_OMC.Text & "," & method & ","
+
         ' let the user view the board
-        Delay(2)
+        'Delay(2)
 
         ' get ready for next test
-        moveString = ""
         moveCount = 0
-
         t = 1000
 
         Return 0
@@ -68,43 +85,8 @@
 
     Function IsStuck(ByVal nextAction As Integer)
         If nextAction = -1 Then
-            MsgBox("No better states to move to!")
-            Return True
-            'ElseIf Not TestSetup.clb_OptionsList.GetItemChecked(3) And CheckForCycle() Then
-            '    MsgBox("Caught in an infinite loop!")
-            '    Return True
-        End If
-        Return False
-    End Function
-
-    Function CheckForCycle()
-        Dim cycle1 As String = ""
-        Dim cycle2 As String = ""
-
-        ' not enough moves for a cycle
-        If moveString.Length < 16 Then
-            Return False
-        End If
-
-        ' look for a cycle of 6 moves
-        cycle1 = moveString.Substring(0, 6)
-        cycle2 = moveString.Substring(6, 6)
-
-        If cycle1 = cycle2 Then
             Return True
         End If
-
-        ' look for a cycle of 8 moves
-        cycle1 = moveString.Substring(0, 8)
-        cycle2 = moveString.Substring(8, 8)
-
-        If cycle1 = cycle2 Then
-            Return True
-        End If
-
-        'truncate the first character to make room for the next move
-        moveString = moveString.Substring(1, 15)
-
         Return False
     End Function
 
@@ -130,6 +112,7 @@
     End Function
 
     Sub InitializeNPuzzle(ByVal initialState As String, ByVal goalState As String)
+        problemString = initialState
         board = New Integer(initialState.Length - 1) {}
         goal = New Integer(initialState.Length - 1) {}
         For i = 0 To (initialState.Length - 1)
@@ -142,6 +125,7 @@
         Next i
     End Sub
 
+    ' returns
     Function SelectAction()
         Dim betterResult As Integer = -1
         Dim unchangedResults() As Integer = New Integer() {}
@@ -151,12 +135,12 @@
         For i = 0 To 3
             If i <> inverseOfPreviousAction And isMoveValid(i) Then
                 Select Case EvaluateMove(GetIndexOfPieceToMove(i))
-                    Case 1 ' moves a piece into its goal position
+                    Case 2 ' moves a piece into its goal position
                         betterResult = i
-                    Case 0 ' moves piece neither in or out of goal position
+                    Case 1 ' moves piece neither in or out of goal position
                         ReDim Preserve unchangedResults(0 To UBound(unchangedResults) + 1)
                         unchangedResults(UBound(unchangedResults)) = i
-                    Case -1 ' moves piece out of goal position
+                    Case 0 ' moves piece out of goal position
                         ReDim Preserve worseResults(0 To UBound(worseResults) + 1)
                         worseResults(UBound(worseResults)) = i
                 End Select
@@ -171,7 +155,6 @@
                 Return unchangedResults(0)
             End If
             Return unchangedResults(Random(0, unchangedResults.Length - 1))
-            'Dim bestUnchanged As Integer = -1
 
         ElseIf worseResults.Length > 1 Then
             Return worseResults(Random(0, worseResults.Length - 1))
@@ -184,7 +167,7 @@
         Dim bestIndex As Integer = 0
         Dim h As Integer = -1
         Dim unchangedResults() As Integer = New Integer() {}
-        Dim results() As Integer = {19, 19, 19, 19}
+        Dim results() As Integer = {-1, -1, -1, -1}
 
         ' evaluate each of up to 3 possible moves
         For i = 0 To 3
@@ -193,7 +176,7 @@
                 results(i) = HeuristicFunction(GetIndexOfPieceToMove(i))
                 If i > 0 Then
                     ' here we store the heuristic values for each move
-                    If results(i) < results(bestIndex) Then
+                    If results(i) > results(bestIndex) Then
                         bestIndex = i
                     End If
                 End If
@@ -201,18 +184,14 @@
         Next
 
         ' NOTE: Gets stuck almost immediately with test against current H value so comment it out
-        '' return the best uphill move
-        'If results(bestIndex) < currentH Then
-        '    Return bestIndex
-        'End If
-
-        '' uh oh, we're stuck!
-        'Return -1
-
-
+        ' return the best uphill move
         ' if multiple equal best moves were found, the first one found is returned
-        Return bestIndex
+        If results(bestIndex) > currentH Then
+            Return bestIndex
+        End If
 
+        ' uh oh, we're stuck!
+        Return -1
     End Function
 
     Function SelectActionWithFirstChoiceHillClimbing()
@@ -232,18 +211,14 @@
         Dim randomIndex As Integer
         While possibleMoveChoices.Count > 0
             randomIndex = Random(0, possibleMoveChoices.Count - 1)
-            If HeuristicFunction(GetIndexOfPieceToMove(possibleMoveChoices(randomIndex))) > currentH Then
+            h = HeuristicFunction(GetIndexOfPieceToMove(possibleMoveChoices(randomIndex)))
+            If h > currentH Then
+                currentH = h
                 Return possibleMoveChoices.Item(randomIndex)
             End If
             ' the h value of this choice was not better than currentH, so remove it to prevent infinite looping
             possibleMoveChoices.RemoveAt(randomIndex)
         End While
-
-        ' NOTE: Gets stuck almost immediately with test against current H value so comment it out
-        '' return the best uphill move
-        'If results(bestIndex) < currentH Then
-        '    Return bestIndex
-        'End If
 
         ' none of the neighbors had a better h value, uh oh, we're stuck!
         Return -1
@@ -262,14 +237,9 @@
             End If
         Next
         Dim num As Integer = 0
-        Dim probability As Double = 0
         Dim randomIndex As Integer
 
         While True
-
-            'If t <= 0 Then
-            '    Return -1 ' to return the current position would mean we are stuck so just return -1 and be done
-            'End If
 
             randomIndex = Random(0, possibleMoveChoices.Count - 1)
             h = HeuristicFunction(GetIndexOfPieceToMove(possibleMoveChoices(randomIndex)))
@@ -284,6 +254,10 @@
                     t -= 0.5
                     Exit While
                 End If
+            End If
+
+            If t <= 0 Then
+                Exit While
             End If
 
         End While
@@ -363,15 +337,15 @@
 
 
     Function EvaluateMove(ByVal index As Integer)
-        ' result of 1 means the piece moved will end up in its goal state
-        ' result of -1 means the piece moved will end up out of its goal state
-        ' result of 0 does neither
+        ' result of 2 means the piece moved will end up in its goal state
+        ' result of 0 means the piece moved will end up out of its goal state
+        ' result of 1 does neither
         If board(index) = goal(spaceIndex) Then
-            Return 1
+            Return 2
         ElseIf board(index) = goal(index) Then
-            Return -1
+            Return 0
         End If
-        Return 0
+        Return 1
     End Function
 
     Function GetIndexOfPieceToMove(ByVal direction As Integer)
