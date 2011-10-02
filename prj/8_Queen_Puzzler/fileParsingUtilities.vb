@@ -227,6 +227,8 @@ Module fileParsingUtilities
 
     Sub StartNPuzzleTest()
 
+        TestSetup.tb_PuzzleType.Text = "Puzzle"
+
         Dim logfileName As String
         Dim curDate As String
         Dim curTime As String
@@ -241,8 +243,8 @@ Module fileParsingUtilities
         For i = 0 To (TestCaseNPL.Length - 2)
             InitializeNPuzzle(TestCaseNPL(i), TestCaseNPS(i))
 
-            TestSetup.tb_N.Text = TestCaseNPL(i).Length
-            TestSetup.tb_OMC.Text = TestCaseOS(0)
+            TestSetup.tb_N.Text = i + 1 'TestCaseNPL(i).Length
+            TestSetup.tb_OMC.Text = TestCaseOS(i)
             TestSetup.tb_CMC.Text = 0
             'loggingUtilities.logTestCaseResult("Solving " & TestCaseNPL(i))
 
