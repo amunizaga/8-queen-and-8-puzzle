@@ -26,7 +26,7 @@
     Function SolveNPuzzle()
         Dim nextAction As Integer
         Dim actionStr As String = ""
-        ' Delay(2)
+        Delay(2)
 
         ' calculate and display the h value of the initial state
         currentH = HeuristicFunction(-1)
@@ -74,7 +74,7 @@
         outcome += moveCount & "," & TestSetup.tb_OMC.Text & "," & method & ","
 
         ' let the user view the board
-        'Delay(2)
+        Delay(2)
 
         ' get ready for next test
         moveCount = 0
