@@ -2,6 +2,8 @@
 
 Module fileParsingUtilities
 
+    Public outcome As String
+    Public fileName As String
     Dim piecePositions As String
     Dim puzzleType As String
     Dim TestCaseQL(0 To 0) As String
@@ -159,6 +161,7 @@ Module fileParsingUtilities
     Sub getTestCases()
         Dim myReader As StreamReader
         For Each file In TestSetup.ofd_TestCase.FileNames
+            fileName = file.ToString().Substring(file.LastIndexOf("\") + 1)
             Try
                 myReader = New System.IO.StreamReader(file)
             Catch ex As Exception
@@ -237,21 +240,25 @@ Module fileParsingUtilities
         curTime = Date.Now.Hour & Date.Now.Minute & Date.Now.Second
 
 
-        logfileName = "./QueensTest_" & curDate & "_" & curTime & ".txt"
+        logfileName = "./" & TestSetup.checkBoxString & "_" & fileName & ".csv"
 
-        'loggingUtilities.setLogName(logfileName)
+        loggingUtilities.setLogName(logfileName)
+
+        ' logfile column headers
+        loggingUtilities.logTestCaseResult("Test Case,Outcome,Moves Executed,OMC,Method,Test File,")
+
         For i = 0 To (TestCaseNPL.Length - 2)
             InitializeNPuzzle(TestCaseNPL(i), TestCaseNPS(i))
 
-            TestSetup.tb_N.Text = i + 1 'TestCaseNPL(i).Length
+            TestSetup.tb_N.Text = i + 1
             TestSetup.tb_OMC.Text = TestCaseOS(i)
             TestSetup.tb_CMC.Text = 0
             'loggingUtilities.logTestCaseResult("Solving " & TestCaseNPL(i))
 
             SolveNPuzzle()
 
-
-            'loggingUtilities.logTestCaseResult("Solved to " & piecePositions & " in " & TestSetup.tb_OMC.Text & " moves.")
+            ' logfile content - open the final file in Excel for viewing
+            loggingUtilities.logTestCaseResult((i + 1).ToString() & "," & outcome & fileName & ",")
         Next i
 
     End Sub
@@ -260,7 +267,6 @@ Module fileParsingUtilities
         Dim logfileName As String
         Dim curDate As String
         Dim curTime As String
-
 
         curDate = Date.Now.Month & "_" & Date.Now.Day & "_" & Date.Now.Year
         curTime = Date.Now.Hour & Date.Now.Minute & Date.Now.Second

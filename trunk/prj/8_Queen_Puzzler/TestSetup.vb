@@ -1,6 +1,7 @@
 ﻿Public Class TestSetup
 
     Public myBestGoalState As String = "string"
+    Public checkBoxString = ""
 
     Public moveDelayEnabled As Boolean = True
     Dim images() As System.Drawing.Bitmap = New System.Drawing.Bitmap() {
@@ -24,7 +25,6 @@
 
     Private Sub btn_OpenFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_OpenFile.Click
         ofd_TestCase.ShowDialog()
-
 
         ' if cb_Queen is checked get 8 Queens tests else 8 Puzzle tests
         fileParsingUtilities.getTestCases()
@@ -725,5 +725,48 @@
 
     Private Sub clb_OptionsList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles clb_OptionsList.SelectedIndexChanged
         'clb_OptionsList.SetItemChecked(sender.ToString().Substring(sender.ToString().IndexOf("[") + 1, 1), False)
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            checkBoxString = "Steepest"
+            Uncheck8PuzzleCheckboxes(1)
+        End If
+    End Sub
+    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked Then
+            checkBoxString = "FirstChoice"
+            Uncheck8PuzzleCheckboxes(2)
+        End If
+    End Sub
+    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox3.CheckedChanged
+        If CheckBox3.Checked Then
+            checkBoxString = "Annealing"
+            Uncheck8PuzzleCheckboxes(3)
+        End If
+    End Sub
+    Private Sub CheckBox4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox4.CheckedChanged
+        If CheckBox4.Checked Then
+            checkBoxString = "Greedy"
+            Uncheck8PuzzleCheckboxes(4)
+        End If
+    End Sub
+
+    Private Sub Uncheck8PuzzleCheckboxes(ByVal checkbox As Integer)
+        Dim checkboxes As New List(Of Integer)(New Integer() {1, 2, 3, 4})
+        checkboxes.Remove(checkbox)
+        For i = 0 To 2
+            Select Case checkboxes.Item(i)
+                Case 1
+                    CheckBox1.Checked = False
+                Case 2
+                    CheckBox2.Checked = False
+                Case 3
+                    CheckBox3.Checked = False
+                Case 4
+                    CheckBox4.Checked = False
+            End Select
+        Next
+        checkboxes.Clear()
     End Sub
 End Class

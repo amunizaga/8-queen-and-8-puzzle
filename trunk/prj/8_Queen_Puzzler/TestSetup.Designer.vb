@@ -24,6 +24,10 @@ Partial Class TestSetup
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TestSetup))
         Me.gb_LoadTestCase = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.cb_MoveDelay = New System.Windows.Forms.CheckBox()
         Me.cb_Puzzle = New System.Windows.Forms.CheckBox()
         Me.cb_Queen = New System.Windows.Forms.CheckBox()
@@ -125,7 +129,9 @@ Partial Class TestSetup
         Me.stateName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Info = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.hVal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.gb_LoadTestCase.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.gb_TestOptions.SuspendLayout()
         Me.gb_TestCaseData.SuspendLayout()
         Me.gb_ChessBoard.SuspendLayout()
@@ -208,6 +214,7 @@ Partial Class TestSetup
         '
         'gb_LoadTestCase
         '
+        Me.gb_LoadTestCase.Controls.Add(Me.GroupBox1)
         Me.gb_LoadTestCase.Controls.Add(Me.cb_MoveDelay)
         Me.gb_LoadTestCase.Controls.Add(Me.cb_Puzzle)
         Me.gb_LoadTestCase.Controls.Add(Me.cb_Queen)
@@ -215,17 +222,60 @@ Partial Class TestSetup
         Me.gb_LoadTestCase.Controls.Add(Me.btn_OpenFile)
         Me.gb_LoadTestCase.Location = New System.Drawing.Point(13, 13)
         Me.gb_LoadTestCase.Name = "gb_LoadTestCase"
-        Me.gb_LoadTestCase.Size = New System.Drawing.Size(434, 100)
+        Me.gb_LoadTestCase.Size = New System.Drawing.Size(623, 148)
         Me.gb_LoadTestCase.TabIndex = 0
         Me.gb_LoadTestCase.TabStop = False
         Me.gb_LoadTestCase.Text = "Load Test Case"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.CheckBox4)
+        Me.GroupBox1.Controls.Add(Me.CheckBox3)
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Location = New System.Drawing.Point(267, 28)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(173, 113)
+        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "8 Puzzle Options"
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(7, 90)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(60, 17)
+        Me.CheckBox4.TabIndex = 7
+        Me.CheckBox4.Text = "Greedy"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(7, 65)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(122, 17)
+        Me.CheckBox3.TabIndex = 6
+        Me.CheckBox3.Text = "HC (With Annealing)"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(7, 42)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(105, 17)
+        Me.CheckBox2.TabIndex = 5
+        Me.CheckBox2.Text = "HC (First-Choice)"
+        Me.CheckBox2.UseVisualStyleBackColor = True
         '
         'cb_MoveDelay
         '
         Me.cb_MoveDelay.AutoSize = True
         Me.cb_MoveDelay.Checked = True
         Me.cb_MoveDelay.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cb_MoveDelay.Location = New System.Drawing.Point(291, 75)
+        Me.cb_MoveDelay.Location = New System.Drawing.Point(447, 77)
         Me.cb_MoveDelay.Name = "cb_MoveDelay"
         Me.cb_MoveDelay.Size = New System.Drawing.Size(136, 17)
         Me.cb_MoveDelay.TabIndex = 5
@@ -235,7 +285,7 @@ Partial Class TestSetup
         'cb_Puzzle
         '
         Me.cb_Puzzle.AutoSize = True
-        Me.cb_Puzzle.Location = New System.Drawing.Point(291, 52)
+        Me.cb_Puzzle.Location = New System.Drawing.Point(447, 54)
         Me.cb_Puzzle.Name = "cb_Puzzle"
         Me.cb_Puzzle.Size = New System.Drawing.Size(57, 17)
         Me.cb_Puzzle.TabIndex = 4
@@ -247,7 +297,7 @@ Partial Class TestSetup
         Me.cb_Queen.AutoSize = True
         Me.cb_Queen.Checked = True
         Me.cb_Queen.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cb_Queen.Location = New System.Drawing.Point(291, 29)
+        Me.cb_Queen.Location = New System.Drawing.Point(446, 31)
         Me.cb_Queen.Name = "cb_Queen"
         Me.cb_Queen.Size = New System.Drawing.Size(58, 17)
         Me.cb_Queen.TabIndex = 3
@@ -257,12 +307,12 @@ Partial Class TestSetup
         'gb_TestOptions
         '
         Me.gb_TestOptions.Controls.Add(Me.clb_OptionsList)
-        Me.gb_TestOptions.Location = New System.Drawing.Point(88, 20)
+        Me.gb_TestOptions.Location = New System.Drawing.Point(88, 28)
         Me.gb_TestOptions.Name = "gb_TestOptions"
-        Me.gb_TestOptions.Size = New System.Drawing.Size(173, 74)
+        Me.gb_TestOptions.Size = New System.Drawing.Size(173, 94)
         Me.gb_TestOptions.TabIndex = 2
         Me.gb_TestOptions.TabStop = False
-        Me.gb_TestOptions.Text = "Options"
+        Me.gb_TestOptions.Text = "8 Queen Options"
         '
         'clb_OptionsList
         '
@@ -271,14 +321,14 @@ Partial Class TestSetup
         Me.clb_OptionsList.Items.AddRange(New Object() {"Hill Climb", "HC with Annealing", "Genetic Algorithm", "Local Beam"})
         Me.clb_OptionsList.Location = New System.Drawing.Point(7, 20)
         Me.clb_OptionsList.Name = "clb_OptionsList"
-        Me.clb_OptionsList.Size = New System.Drawing.Size(160, 49)
+        Me.clb_OptionsList.Size = New System.Drawing.Size(160, 64)
         Me.clb_OptionsList.TabIndex = 0
         '
         'btn_OpenFile
         '
-        Me.btn_OpenFile.Location = New System.Drawing.Point(7, 20)
+        Me.btn_OpenFile.Location = New System.Drawing.Point(6, 36)
         Me.btn_OpenFile.Name = "btn_OpenFile"
-        Me.btn_OpenFile.Size = New System.Drawing.Size(75, 69)
+        Me.btn_OpenFile.Size = New System.Drawing.Size(75, 83)
         Me.btn_OpenFile.TabIndex = 0
         Me.btn_OpenFile.Text = "Open Test Case File"
         Me.btn_OpenFile.UseVisualStyleBackColor = True
@@ -286,7 +336,7 @@ Partial Class TestSetup
         'btn_StartTest
         '
         Me.btn_StartTest.Enabled = False
-        Me.btn_StartTest.Location = New System.Drawing.Point(13, 238)
+        Me.btn_StartTest.Location = New System.Drawing.Point(9, 286)
         Me.btn_StartTest.Name = "btn_StartTest"
         Me.btn_StartTest.Size = New System.Drawing.Size(75, 23)
         Me.btn_StartTest.TabIndex = 1
@@ -295,7 +345,7 @@ Partial Class TestSetup
         '
         'btn_CloseWindow
         '
-        Me.btn_CloseWindow.Location = New System.Drawing.Point(204, 237)
+        Me.btn_CloseWindow.Location = New System.Drawing.Point(204, 286)
         Me.btn_CloseWindow.Name = "btn_CloseWindow"
         Me.btn_CloseWindow.Size = New System.Drawing.Size(75, 23)
         Me.btn_CloseWindow.TabIndex = 2
@@ -324,7 +374,7 @@ Partial Class TestSetup
         Me.gb_TestCaseData.Controls.Add(Me.tb_N)
         Me.gb_TestCaseData.Controls.Add(Me.lbl_N)
         Me.gb_TestCaseData.Enabled = False
-        Me.gb_TestCaseData.Location = New System.Drawing.Point(13, 119)
+        Me.gb_TestCaseData.Location = New System.Drawing.Point(9, 167)
         Me.gb_TestCaseData.Name = "gb_TestCaseData"
         Me.gb_TestCaseData.Size = New System.Drawing.Size(361, 113)
         Me.gb_TestCaseData.TabIndex = 3
@@ -514,7 +564,7 @@ Partial Class TestSetup
         Me.gb_ChessBoard.Controls.Add(Me.pb_chessC8)
         Me.gb_ChessBoard.Controls.Add(Me.pb_chessB8)
         Me.gb_ChessBoard.Controls.Add(Me.pb_chessA8)
-        Me.gb_ChessBoard.Location = New System.Drawing.Point(2, 279)
+        Me.gb_ChessBoard.Location = New System.Drawing.Point(9, 330)
         Me.gb_ChessBoard.Name = "gb_ChessBoard"
         Me.gb_ChessBoard.Size = New System.Drawing.Size(365, 427)
         Me.gb_ChessBoard.TabIndex = 5
@@ -1120,7 +1170,7 @@ Partial Class TestSetup
         Me.gb_Puz.Controls.Add(Me.pb_puzzle3)
         Me.gb_Puz.Controls.Add(Me.pb_puzzle2)
         Me.gb_Puz.Controls.Add(Me.pb_puzzle1)
-        Me.gb_Puz.Location = New System.Drawing.Point(387, 286)
+        Me.gb_Puz.Location = New System.Drawing.Point(387, 330)
         Me.gb_Puz.Name = "gb_Puz"
         Me.gb_Puz.Size = New System.Drawing.Size(166, 189)
         Me.gb_Puz.TabIndex = 6
@@ -1213,7 +1263,7 @@ Partial Class TestSetup
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stateName, Me.Info, Me.hVal})
-        Me.DataGridView1.Location = New System.Drawing.Point(387, 493)
+        Me.DataGridView1.Location = New System.Drawing.Point(387, 544)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(446, 213)
         Me.DataGridView1.TabIndex = 7
@@ -1235,11 +1285,22 @@ Partial Class TestSetup
         Me.hVal.HeaderText = "H"
         Me.hVal.Name = "hVal"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.CheckBox1.Location = New System.Drawing.Point(7, 20)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(128, 17)
+        Me.CheckBox1.TabIndex = 8
+        Me.CheckBox1.Text = "HC (Steepest Ascent)"
+        Me.CheckBox1.UseVisualStyleBackColor = False
+        '
         'TestSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(845, 723)
+        Me.ClientSize = New System.Drawing.Size(845, 769)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gb_Puz)
         Me.Controls.Add(Me.gb_ChessBoard)
@@ -1251,6 +1312,8 @@ Partial Class TestSetup
         Me.Text = "Test Data Setup"
         Me.gb_LoadTestCase.ResumeLayout(False)
         Me.gb_LoadTestCase.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.gb_TestOptions.ResumeLayout(False)
         Me.gb_TestCaseData.ResumeLayout(False)
         Me.gb_TestCaseData.PerformLayout()
@@ -1344,7 +1407,6 @@ Partial Class TestSetup
     Friend WithEvents tb_OMC As System.Windows.Forms.TextBox
     Friend WithEvents lbl_OMC As System.Windows.Forms.Label
     Friend WithEvents gb_TestOptions As System.Windows.Forms.GroupBox
-    Friend WithEvents clb_OptionsList As System.Windows.Forms.CheckedListBox
     Friend WithEvents tb_PuzzleType As System.Windows.Forms.TextBox
     Friend WithEvents lbl_PuzzleType As System.Windows.Forms.Label
     Friend WithEvents gb_ChessBoard As System.Windows.Forms.GroupBox
@@ -1435,5 +1497,11 @@ Partial Class TestSetup
     Friend WithEvents hVal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tb_calc_omc As System.Windows.Forms.TextBox
+    Friend WithEvents clb_OptionsList As System.Windows.Forms.CheckedListBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 
 End Class
