@@ -723,4 +723,7 @@
         pb_chessH1.Image = My.Resources.redChessSquare
     End Sub
 
+    Private Sub clb_OptionsList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles clb_OptionsList.SelectedIndexChanged
+        'clb_OptionsList.SetItemChecked(sender.ToString().Substring(sender.ToString().IndexOf("[") + 1, 1), False)
+    End Sub
 End Class
