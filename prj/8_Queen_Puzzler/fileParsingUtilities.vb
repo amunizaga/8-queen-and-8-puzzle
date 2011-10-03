@@ -271,9 +271,12 @@ Module fileParsingUtilities
         curDate = Date.Now.Month & "_" & Date.Now.Day & "_" & Date.Now.Year
         curTime = Date.Now.Hour & Date.Now.Minute & Date.Now.Second
 
-        logfileName = "./QueensTest_" & curDate & "_" & curTime & ".txt"
+        logfileName = "./QueensTest_" & curDate & "_" & curTime & ".csv"
 
         loggingUtilities.setLogName(logfileName)
+
+        ' logfile column headers
+        loggingUtilities.logTestCaseResult("Test Case,End Position,Moves Executed,OMC,Test File,")
 
         For i = 0 To (TestCaseQL.Length - 2)
             'MsgBox(TestCaseQL(i) & "and there will be " & (TestCaseQL.Length - 1) & " test cases")
@@ -286,12 +289,10 @@ Module fileParsingUtilities
             TestSetup.tb_OMC.Text = TestCaseOS(i)
             TestSetup.tb_CMC.Text = 0
 
-            loggingUtilities.logTestCaseResult("Solving " & TestCaseQL(i))
-
             piecePositions = SolveNQueen()
 
             TestSetup.updateChessGrid(piecePositions)
-            loggingUtilities.logTestCaseResult("Solved to " & piecePositions & " in " & TestSetup.tb_OMC.Text & " moves.")
+            loggingUtilities.logTestCaseResult((i + 1).ToString() & "," & piecePositions & "," & TestSetup.tb_CMC.Text & "," & TestSetup.tb_OMC.Text & "," & fileName & ",")
             'MsgBox("Solved Puzzle " & (i + 1) & " out of " & (TestCaseQL.Length - 1) & " with goal state: " & TestSetup.myBestGoalState)
         Next i
 
