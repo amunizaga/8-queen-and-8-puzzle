@@ -1,0 +1,24 @@
+# 8-queens test cases with OMC
+# Nick Ferraro and Janet John
+# In each test case, line 1 indicates the initial state and line 2 indicates the OMC
+# Corner Case
+25713864
+0
+14683175
+1
+18368253
+2
+17571563
+3
+42673736
+4
+52731636
+5
+32867356
+6
+52377162
+7
+81386525
+1
+42763724
+3

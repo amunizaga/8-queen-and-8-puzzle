@@ -1,0 +1,47 @@
+# 8-puzzle test cases with OMC
+# Nick Ferraro and Janet John
+# In each test case line 1 indicates the initial state and line 2 indicates the goal state, line 3 is the OMC
+123456780
+123456780
+0
+123456708
+123456780
+1
+123406758
+123456780
+2
+103426758
+123456780
+3
+013426758
+123456780
+4
+413026758
+123456780
+5
+413726058
+123456780
+6
+423567018
+123456780
+22
+087654321
+123456780
+28
+046823157
+123456780
+24
+762134508
+123456780
+21
+ 
+
+
+
+
+
+
+
+
+
+
