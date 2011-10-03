@@ -80,6 +80,7 @@
 
 
             End While
+            TestSetup.tb_CMC.Text = moveCounter
         End If
 
         'here lies genetic algorithm operations
