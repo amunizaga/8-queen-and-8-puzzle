@@ -1,0 +1,1 @@
+For Marquette University Course COSC 4600 701 Fundam Artificial Intelligence, this is a team programming assignment where the team will develop a computer program that will solve 8 queen and 8 puzzle problems using hill-climbing, simulated annealing, and other approaches.  A standard test-case input format will be used across the whole class.
